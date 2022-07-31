@@ -28,7 +28,7 @@ syntax enable
 " tabbing
 set autoindent
 set smarttab
-set tabstop=4
+set tabstop=3
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
