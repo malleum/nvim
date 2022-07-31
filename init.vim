@@ -4,17 +4,17 @@ let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 "plugins
 call plug#begin('~\AppData\Local\nvim\plugged')
 	
-    Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
-	Plug 'tpope/vim-surround' "surrounding ysw)
-    Plug 'tpope/vim-commentary' " For Commenting gcc & gc
-	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+	 Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
+	 Plug 'tpope/vim-surround' "surrounding ysw)
+	 Plug 'tpope/vim-commentary' " For Commenting gcc & gc
+	 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-    Plug 'preservim/nerdtree' " NerdTree
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	 Plug 'preservim/nerdtree' " NerdTree
+	 Plug 'Xuyuanp/nerdtree-git-plugin'
+	 Plug 'ryanoasis/vim-devicons'
+	 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-    Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
+Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
 call plug#end()
 
@@ -28,7 +28,7 @@ syntax enable
 " tabbing
 set autoindent
 set smarttab
-set tabstop=3
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
@@ -36,6 +36,7 @@ set noexpandtab
 " settings
 set number
 set relativenumber
+set nowrap
 set hidden
 set autoread
 set autowrite
