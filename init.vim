@@ -25,7 +25,6 @@ colorscheme orbital "pablo
 filetype plugin indent on
 syntax enable
 
-
 " tabbing
 set autoindent
 set smarttab
