@@ -4,22 +4,23 @@ let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 "plugins
 call plug#begin('~\AppData\Local\nvim\plugged')
 	
-	 Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
-	 Plug 'tpope/vim-surround' "surrounding ysw)
-	 Plug 'tpope/vim-commentary' " For Commenting gcc & gc
-	 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+	Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
+	Plug 'tpope/vim-surround' "surrounding ysw)
+	Plug 'tpope/vim-commentary' " For Commenting gcc & gc
+	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
-	 Plug 'preservim/nerdtree' " NerdTree
-	 Plug 'Xuyuanp/nerdtree-git-plugin'
-	 Plug 'ryanoasis/vim-devicons'
-	 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	Plug 'preservim/nerdtree' " NerdTree
+	Plug 'Xuyuanp/nerdtree-git-plugin'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
+	Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
 call plug#end()
 
 " color scheme
 colorscheme orbital "pablo
+
 
 " features
 filetype plugin indent on
@@ -37,23 +38,21 @@ set noexpandtab
 set number
 set relativenumber
 set nowrap
-set hidden
 set autoread
 set autowrite
 set clipboard=unnamedplus
 set cursorcolumn
 set cursorline
-set display=lastline
 set encoding=utf-8
 set history=50
 set ignorecase
 set incsearch
 set mouse=a
 set noruler
-set noshowmode
+set showmode
 set path+=** "search for subfolders with :find
 set wildmenu "menu for ^^ && other things
-set complete+=kspell
+set complete+=kspell " :set spell to activate dictonary spelling
 set showmatch
 set smartcase
 set scrolloff=2
@@ -218,3 +217,5 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nmap <silent><nowait> <C-_> gcc
 "visual mode
 vmap <silent><nowait> <C-_> gc
+
+nnoremap Y y$
