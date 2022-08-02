@@ -3,18 +3,16 @@ let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 
 "plugins
 call plug#begin('~\AppData\Local\nvim\plugged')
-	
+
 	Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
 	Plug 'tpope/vim-surround' "surrounding ysw)
 	Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+	Plug 'ntpeters/vim-better-whitespace'
+	Plug 'tpope/vim-fugitive'
 	Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
-	" Plug 'preservim/nerdtree' " NerdTree
-	" Plug 'Xuyuanp/nerdtree-git-plugin'
-	" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-	" Plug 'ryanoasis/vim-devicons'
 	Plug 'preservim/nerdtree' |
 			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
@@ -193,10 +191,16 @@ vmap <silent><nowait> <C-_> gc
 
 "NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
+"Tab
 nnoremap <C-i> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR> 
+nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 let g:NERDTreeDirArrowExpandable = '*'
 let g:NERDTreeDirArrowCollapsible = '~'
-" let g:NERDTreeGitStatusConcealBrackets = 1
+
+"Better Whitespace
+let g:better_whitespace_ctermcolor='darkblue'
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
