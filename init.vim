@@ -10,7 +10,9 @@ call plug#begin('~\AppData\Local\nvim\plugged')
 	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 	Plug 'ntpeters/vim-better-whitespace'
-	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-fugitive' " Git commands
+	Plug 'ctrlpvim/ctrlp.vim' " file search
+
 	Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
 	Plug 'preservim/nerdtree' |
@@ -204,3 +206,6 @@ let g:better_whitespace_ctermcolor='darkblue'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+
+"Ctrlp
+nnoremap <leader>p :CtrlP<CR>
