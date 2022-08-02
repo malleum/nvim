@@ -1,4 +1,4 @@
-"coc path
+" Plug "coc path
 let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 
 "plugins
@@ -11,15 +11,21 @@ call plug#begin('~\AppData\Local\nvim\plugged')
 
 	Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
-	Plug 'preservim/nerdtree' " NerdTree
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-	Plug 'ryanoasis/vim-devicons'
+	" Plug 'preservim/nerdtree' " NerdTree
+	" Plug 'Xuyuanp/nerdtree-git-plugin'
+	" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+	" Plug 'ryanoasis/vim-devicons'
+	Plug 'preservim/nerdtree' |
+			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
 let mapleader = ","
+
 nnoremap Y y$
+nnoremap <leader>w <C-w><C-w>
 
 " color scheme
 colorscheme orbital "pablo
@@ -193,3 +199,4 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 let g:NERDTreeDirArrowExpandable = '*'
 let g:NERDTreeDirArrowCollapsible = '~'
+" let g:NERDTreeGitStatusConcealBrackets = 1
