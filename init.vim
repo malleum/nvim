@@ -21,7 +21,7 @@ call plug#begin(pluggedPath)
 
 	Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
-	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline' " advanced status bar
 	Plug 'vim-airline/vim-airline-themes'
 
 	Plug 'preservim/nerdtree' |
@@ -130,11 +130,11 @@ nmap <leader>F  <Plug>(coc-format-selected)
 nmap <leader>f ggVG<Plug>(coc-format-selected)<C-o>
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	autocmd!
+	" Setup formatexpr specified filetype(s).
+	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	" Update signature help on jump placeholder.
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -221,3 +221,8 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 "Ctrlp
 nnoremap <leader>p :CtrlP<CR>
+
+"Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set guifont=Source\ Code\ Pro\ for\ Powerline:h15:cANSI
