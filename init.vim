@@ -15,6 +15,9 @@ call plug#begin('~\AppData\Local\nvim\plugged')
 
 	Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+
 	Plug 'preservim/nerdtree' |
 			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
@@ -29,6 +32,7 @@ nnoremap <leader>w <C-w><C-w>
 
 " color scheme
 colorscheme orbital "pablo
+let g:AirlineTheme='orbital'
 
 " features
 filetype plugin indent on
