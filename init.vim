@@ -1,8 +1,14 @@
 " Plug "coc path
 let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 
+if has('win32') || has('win64')
+	let pluggedPath = '~\AppData\Local\nvim\plugged'
+else "linux
+	let pluggedPath = '~/.config/nvim/plugged'
+endif
+
 "plugins
-call plug#begin('~\AppData\Local\nvim\plugged')
+call plug#begin(pluggedPath)
 
 	Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
 	Plug 'tpope/vim-surround' "surrounding ysw)
@@ -61,7 +67,7 @@ set ignorecase
 set incsearch
 set mouse=a
 set noruler
-set showmode
+set noshowmode
 set path+=** "search for subfolders with :find
 set wildmenu "menu for ^^ && other things
 set complete+=kspell " :set spell to activate dictonary spelling
@@ -210,6 +216,8 @@ let g:better_whitespace_ctermcolor='darkblue'
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+"close vim if only nerdtree
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "Ctrlp
 nnoremap <leader>p :CtrlP<CR>
