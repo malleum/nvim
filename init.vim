@@ -206,9 +206,9 @@ vmap <silent><nowait> <C-_> gc
 "NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
 "Tab
-nnoremap <C-i> :NERDTree<CR>
+nnoremap <C-f> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
 
 let g:NERDTreeDirArrowExpandable = '*'
 let g:NERDTreeDirArrowCollapsible = '~'
