@@ -224,6 +224,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 "Ctrlp
 nnoremap <leader>p :CtrlP<CR>
 
+"Colorizer
+nnoremap <leader>c :ColorHighlight<CR>
+
 "Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
