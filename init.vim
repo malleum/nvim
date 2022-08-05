@@ -24,6 +24,8 @@ call plug#begin(pluggedPath)
 	Plug 'vim-airline/vim-airline' " advanced status bar
 	Plug 'vim-airline/vim-airline-themes'
 
+	Plug 'chrisbra/Colorizer'
+
 	Plug 'preservim/nerdtree' |
 			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin' |
