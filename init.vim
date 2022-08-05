@@ -14,6 +14,7 @@ call plug#begin(pluggedPath)
 	Plug 'tpope/vim-surround' "surrounding ysw)
 	Plug 'tpope/vim-commentary' " For Commenting gcc & gc
 	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+	Plug 'jiangmiao/auto-pairs'
 
 	Plug 'ntpeters/vim-better-whitespace'
 	Plug 'tpope/vim-fugitive' " Git commands
