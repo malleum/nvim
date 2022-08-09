@@ -1,4 +1,4 @@
-" Plug "coc path
+"paths
 let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 
 if has('win32') || has('win64')
@@ -10,27 +10,27 @@ endif
 "plugins
 call plug#begin(pluggedPath)
 
-	Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
-	Plug 'tpope/vim-surround' "surrounding ysw)
-	Plug 'tpope/vim-commentary' " For Commenting gcc & gc
-	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-	Plug 'jiangmiao/auto-pairs'
+Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'tpope/vim-surround' "surrounding ysw)
+Plug 'tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'jiangmiao/auto-pairs'
 
-	Plug 'ntpeters/vim-better-whitespace'
-	Plug 'tpope/vim-fugitive' " Git commands
-	Plug 'ctrlpvim/ctrlp.vim' " file search
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-fugitive' " Git commands
+Plug 'ctrlpvim/ctrlp.vim' " file search
 
-	Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
+Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
-	Plug 'vim-airline/vim-airline' " advanced status bar
-	Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline' " advanced status bar
+Plug 'vim-airline/vim-airline-themes'
 
-	Plug 'chrisbra/Colorizer'
+Plug 'chrisbra/Colorizer'
 
-	Plug 'preservim/nerdtree' |
+Plug 'preservim/nerdtree' |
 			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons'
+			\ Plug 'Xuyuanp/nerdtree-git-plugin' |
+			\ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -49,19 +49,17 @@ syntax enable
 
 " tabbing
 set autoindent
-set smarttab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 set noexpandtab
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set tabstop=4
 
 " settings
-set number
-set relativenumber
-set nowrap
 set autoread
 set autowrite
 set clipboard=unnamedplus
+set complete+=kspell " :set spell to activate dictonary spelling
 set cursorcolumn
 set cursorline
 set encoding=utf-8
@@ -71,21 +69,23 @@ set incsearch
 set mouse=a
 set noruler
 set noshowmode
+set nowrap
+set number
 set path+=** "search for subfolders with :find
-set wildmenu "menu for ^^ && other things
-set complete+=kspell " :set spell to activate dictonary spelling
+set relativenumber
+set scrolloff=2
 set showmatch
 set smartcase
-set scrolloff=2
 set undofile
+set wildmenu "menu for ^^ && other things
 
 " coc requirements
+set cmdheight=2
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=2
-set updatetime=100
 set shortmess+=c
+set updatetime=100
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -98,9 +98,9 @@ endfunction
 
 " Insert <tab> when previous text is space, refresh completion if not.
 inoremap <silent><expr> <TAB>
-	\ coc#pum#visible() ? coc#pum#next(1):
-	\ <SID>check_back_space() ? "\<Tab>" :
-	\ coc#refresh()
+			\ coc#pum#visible() ? coc#pum#next(1):
+			\ <SID>check_back_space() ? "\<Tab>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Use <c-space> to trigger completion.
@@ -109,7 +109,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-							\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -129,7 +129,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-nmap <leader>F  <Plug>(coc-format-selected)
+nmap <leader>F gg=G<C-o>
 nmap <leader>f ggVG<Plug>(coc-format-selected)<C-o>
 
 augroup mygroup
@@ -226,7 +226,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 nnoremap <leader>p :CtrlP<CR>
 
 "Colorizer
-nnoremap <leader>c :ColorHighlight<CR>
+nnoremap <leader>c :ColorToggle<CR>
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
