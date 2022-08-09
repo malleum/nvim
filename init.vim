@@ -10,22 +10,21 @@ endif
 "plugins
 call plug#begin(pluggedPath)
 
-Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
-Plug 'tpope/vim-surround' "surrounding ysw)
-Plug 'tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'jiangmiao/auto-pairs'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'tpope/vim-surround' "surrounding ysw)
 
+Plug 'ctrlpvim/ctrlp.vim' " file search
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive' " Git commands
-Plug 'ctrlpvim/ctrlp.vim' " file search
+Plug 'chrisbra/Colorizer'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
 Plug 'vim-airline/vim-airline' " advanced status bar
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'chrisbra/Colorizer'
 
 Plug 'preservim/nerdtree' |
 			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
