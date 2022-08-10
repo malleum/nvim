@@ -36,7 +36,6 @@ call plug#end()
 let mapleader = ","
 
 nnoremap Y y$
-nnoremap <leader>w <C-w><C-w>
 
 " color scheme
 colorscheme orbital "pablo
