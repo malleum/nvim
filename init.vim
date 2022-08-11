@@ -1,8 +1,6 @@
-"paths
-let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
-
 if has('win32') || has('win64')
 	let pluggedPath = '~\AppData\Local\nvim\plugged'
+	let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 else "linux
 	let pluggedPath = '~/.config/nvim/plugged'
 endif
