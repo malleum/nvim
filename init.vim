@@ -205,7 +205,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 "Tab
 nnoremap <C-f> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-" nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <leader>N :NERDTreeFind<CR>
 
 let g:NERDTreeDirArrowExpandable = '*'
 let g:NERDTreeDirArrowCollapsible = '~'
