@@ -223,6 +223,8 @@ nnoremap <leader>p :CtrlP<CR>
 
 "Colorizer
 nnoremap <leader>c :ColorToggle<CR>
+"Set Spell
+nnoremap <leader>s :set spell<CR>
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
