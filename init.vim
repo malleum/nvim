@@ -1,8 +1,8 @@
 if has('win32') || has('win64')
-	let pluggedPath = '~\AppData\Local\nvim\plugged'
-	let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
+    let pluggedPath = '~\AppData\Local\nvim\plugged'
+    let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
 else "linux
-	let pluggedPath = '~/.config/nvim/plugged'
+    let pluggedPath = '~/.config/nvim/plugged'
 endif
 
 "plugins
@@ -25,13 +25,13 @@ Plug 'vim-airline/vim-airline' " advanced status bar
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'preservim/nerdtree' |
-			\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
-			\ Plug 'Xuyuanp/nerdtree-git-plugin' |
-			\ Plug 'ryanoasis/vim-devicons'
+            \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-let mapleader = ","
+let mapleader = " "
 
 nnoremap Y y$
 
@@ -45,7 +45,7 @@ syntax enable
 
 " tabbing
 set autoindent
-set noexpandtab
+set expandtab
 set shiftwidth=4
 set smarttab
 set softtabstop=4
@@ -88,15 +88,15 @@ set updatetime=100
 set signcolumn=number
 
 function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~ '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 " Insert <tab> when previous text is space, refresh completion if not.
 inoremap <silent><expr> <TAB>
-			\ coc#pum#visible() ? coc#pum#next(1):
-			\ <SID>check_back_space() ? "\<Tab>" :
-			\ coc#refresh()
+            \ coc#pum#visible() ? coc#pum#next(1):
+            \ <SID>check_back_space() ? "\<Tab>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Use <c-space> to trigger completion.
@@ -105,7 +105,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -129,11 +129,11 @@ nmap <leader>F gg=G<C-o>
 nmap <leader>f ggVG<Plug>(coc-format-selected)<C-o>
 
 augroup mygroup
-	autocmd!
-	" Setup formatexpr specified filetype(s).
-	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-	" Update signature help on jump placeholder.
-	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder.
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -225,6 +225,9 @@ nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>c :ColorToggle<CR>
 "Set Spell
 nnoremap <leader>s :set spell<CR>
+"Switch buffer
+nnoremap <leader>b :bn<CR>
+nnoremap <leader>B :bp<CR>
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
