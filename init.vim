@@ -19,6 +19,8 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive' " Git commands
 Plug 'chrisbra/Colorizer'
 
+Plug 'udalov/kotlin-vim'
+
 Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
 
 Plug 'vim-airline/vim-airline' " advanced status bar
