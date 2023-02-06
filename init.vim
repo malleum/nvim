@@ -1,9 +1,4 @@
-if has('win32') || has('win64')
-    let pluggedPath = '~\AppData\Local\nvim\plugged'
-    let g:coc_node_path = 'C:\Program Files\nodejs\node.exe'
-else "linux
-    let pluggedPath = '~/.config/nvim/plugged'
-endif
+let pluggedPath = '~/.config/nvim/plugged'
 
 "plugins
 call plug#begin(pluggedPath)
@@ -128,7 +123,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 nmap <leader>F gg=G<C-o>
-nmap <leader>f :format<CR>
+nmap <leader>f :Format<CR>
 
 augroup mygroup
     autocmd!
@@ -182,7 +177,6 @@ endfunction
 
 "NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
-"Tab
 nnoremap <C-f> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <leader>N :NERDTreeFind<CR>
