@@ -184,23 +184,28 @@ nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>C  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>S  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <space>P  :<C-u>CocListResume<CR>
 
-"Vim Commenting to ^/
-"normal mode
-nmap <silent><nowait> <C-_> gcc
-"visual mode
-vmap <silent><nowait> <C-_> gc
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 "NerdTree
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -230,8 +235,7 @@ nnoremap <leader>s :set spell<CR>
 "Switch buffer
 nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
-" Save :w
-nnoremap <leader>w :w<CR>
+" Save :w nnoremap <leader>w :w<CR>
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
