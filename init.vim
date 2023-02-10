@@ -213,7 +213,6 @@ nnoremap <leader><leader>S :set nospell<CR>
 "Switch buffer
 nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
-" Save :w nnoremap <leader>w :w<CR>
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
