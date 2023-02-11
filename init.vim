@@ -17,6 +17,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive' " Git commands
 Plug 'chrisbra/Colorizer'
 
+Plug 'nickeb96/fish.vim'
 Plug 'udalov/kotlin-vim'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'master'} " Auto Completion
