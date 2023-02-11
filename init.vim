@@ -7,7 +7,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'rafi/awesome-vim-colorschemes' " Retro Scheme
 Plug 'tpope/vim-commentary' " For Commenting gcc & gc
-Plug 'tpope/vim-surround' "surrounding ysw)
+Plug 'tpope/vim-surround' "surrounding ysiw)
+
+Plug 'justinmk/vim-sneak'
+Plug 'unblevable/quick-scope'
 
 Plug 'ctrlpvim/ctrlp.vim' " file search
 Plug 'ntpeters/vim-better-whitespace'
@@ -31,6 +34,13 @@ call plug#end()
 let mapleader = " "
 
 nnoremap Y y$
+
+" color for quick-scope
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+augroup END
 
 " color scheme
 colorscheme orbital "pablo
@@ -203,9 +213,7 @@ nnoremap <leader><leader>S :set nospell<CR>
 "Switch buffer
 nnoremap <leader>b :bn<CR>
 nnoremap <leader>B :bp<CR>
-" Save :w nnoremap <leader>w :w<CR>
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-set guifont=Source\ Code\ Pro\ for\ Powerline:h15:cANSI
