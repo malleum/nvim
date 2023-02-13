@@ -35,7 +35,6 @@ call plug#end()
 let mapleader = " "
 
 nnoremap Y y$
-nnoremap 0 ^
 
 " color for quick-scope
 augroup qs_colors
