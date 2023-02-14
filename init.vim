@@ -70,7 +70,6 @@ set encoding=utf-8
 set history=50
 set ignorecase
 set incsearch
-set mouse=a
 set noruler
 set noshowmode
 set nowrap
@@ -78,7 +77,6 @@ set number
 set path+=** "search for subfolders with :find
 set relativenumber
 set scrolloff=2
-set showmatch
 set smartcase
 set undofile
 set wildmenu "menu for ^^ && other things
