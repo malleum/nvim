@@ -70,6 +70,7 @@ set encoding=utf-8
 set history=50
 set ignorecase
 set incsearch
+set nohlsearch
 set noruler
 set noshowmode
 set nowrap
