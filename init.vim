@@ -16,6 +16,7 @@ Plug 'ctrlpvim/ctrlp.vim' " file search
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive' " Git commands
 Plug 'chrisbra/Colorizer'
+Plug 'tree-sitter/tree-sitter'
 
 Plug 'nickeb96/fish.vim'
 Plug 'udalov/kotlin-vim'
