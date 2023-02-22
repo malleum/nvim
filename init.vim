@@ -203,7 +203,8 @@ let g:strip_whitespace_confirm=0
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "Ctrlp
-nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>p :CtrlPMRUFiles<CR>
+nnoremap <leader>P :CtrlP<CR>
 
 "Colorizer
 nnoremap <leader><leader>c :ColorToggle<CR>
