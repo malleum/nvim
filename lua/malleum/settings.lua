@@ -1,6 +1,5 @@
 
 local o = vim.opt
-local a = vim.api
 local g = vim.g
 
 -- tabbing
@@ -14,7 +13,6 @@ o.tabstop = 4
 -- settings
 o.autoread = true
 o.autowrite = true
-o.clipboard = "unnamedplus"
 o.cursorcolumn = true
 o.cursorline = true
 o.encoding = "utf-8"
@@ -51,15 +49,15 @@ g.better_whitespace_guicolor = "darkblue"
 
 -- Colorscheme
 require("transparent").setup({
-  enable = true,
-  extra_groups = {
-    "BufferLineTabClose",
-    "BufferlineBufferSelected",
-    "BufferLineFill",
-    "BufferLineBackground",
-    "BufferLineSeparator",
-    "BufferLineIndicatorSelected",
-  },
+    enable = true,
+    extra_groups = {
+        "BufferLineTabClose",
+        "BufferlineBufferSelected",
+        "BufferLineFill",
+        "BufferLineBackground",
+        "BufferLineSeparator",
+        "BufferLineIndicatorSelected",
+    },
 })
 
 vim.cmd.colorscheme('OceanicNext')

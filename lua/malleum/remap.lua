@@ -8,8 +8,8 @@ map("n", "<leader>uh", vim.cmd.Ex)
 map("c", "W", "w")
 map("n", "Y", "y$")
 
+map("n", "<leader>F", "mzgg=G`z")
 
--- Josh
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -25,8 +25,6 @@ map({"n", "v"}, "<leader>d", "\"_d") -- void delete
 
 map({"n", "v"}, "<leader>y", "\"+y") -- clipboard copy
 map({"n", "v"}, "<leader>Y", "\"+y$")
-
-map({"n", "v"}, "<leader>v", "\"+p") -- clipboard paste
 
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>") -- executable
