@@ -1,6 +1,7 @@
 function map(m, k, r)
     vim.keymap.set(m, k, r)
 end
+
 -- Josh
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
@@ -61,6 +62,11 @@ map("n", "<leader>ut", vim.cmd.UndotreeToggle)
 
 -- Fugitive
 map("n", "<leader>gs", vim.cmd.Git)
+
+-- Visual Multi
+vim.cmd("let g:VM_maps = {}")
+vim.cmd("let g:VM_maps['Find Under'] = '<C-b>'")
+vim.cmd("let g:VM_maps['Find Subword Under'] = '<C-b>'")
 
 -- LSP Zero
 local lsp = require('lsp-zero').preset({

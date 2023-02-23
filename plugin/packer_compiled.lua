@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/malleum/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/malleum/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   ["cellular-automaton.nvim"] = {
     loaded = true,
     path = "/home/malleum/.local/share/nvim/site/pack/packer/start/cellular-automaton.nvim",
@@ -194,6 +199,11 @@ _G.packer_plugins = {
     path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-better-whitespace",
     url = "https://github.com/ntpeters/vim-better-whitespace"
   },
+  ["vim-commentary"] = {
+    loaded = true,
+    path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-commentary",
+    url = "https://github.com/tpope/vim-commentary"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -203,6 +213,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-sneak",
     url = "https://github.com/justinmk/vim-sneak"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   }
 }
 
