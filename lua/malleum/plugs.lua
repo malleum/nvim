@@ -4,7 +4,7 @@ local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files)
 map("n", "<leader>fg", builtin.git_files)
 map("n", "<leader>fs", function()
-    builtin.grep_string({ search = vim.fn.input("Grep > ") })
+    builtin.grep_string({ search = vim.fn.input("invenire > ") })
 end)
 
 -- Treesitter
