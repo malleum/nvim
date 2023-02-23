@@ -24,7 +24,11 @@ return require('packer').startup(function(use)
     use 'Eandrju/cellular-automaton.nvim'
     use 'xiyaowong/nvim-transparent'
 
-    -- use 'jiangmiao/auto-pairs'
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
     use 'mg979/vim-visual-multi'
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'

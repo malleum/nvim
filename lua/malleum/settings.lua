@@ -1,6 +1,7 @@
 
 local o = vim.opt
 local a = vim.api
+local g = vim.g
 
 -- tabbing
 o.autoindent = true
@@ -43,10 +44,10 @@ o.undofile = true
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 -- Better whitespace
-vim.cmd("let g:better_whitespace_enabled=1")
-vim.cmd("let g:strip_whitespace_on_save=1")
-vim.cmd("let g:strip_whitespace_on_save=1")
-vim.cmd("let g:strip_whitespace_confirm=0")
+g.better_whitespace_enabled = 1
+g.strip_whitespace_on_save = 1
+g.strip_whitespace_confirm = 0
+g.better_whitespace_guicolor = "darkblue"
 
 -- Colorscheme
 require("transparent").setup({
@@ -62,9 +63,7 @@ require("transparent").setup({
 })
 
 vim.cmd.colorscheme('OceanicNext')
-a.nvim_set_hl(0, "Normal", {bg = "none"})
-a.nvim_set_hl(0, "NormalFloat", {bg = "none"})
 
 -- QuickScope
-vim.cmd("highlight QuickScopePrimary guifg='#00ff00' gui=underline ctermfg=155 cterm=underline")
-vim.cmd("highlight QuickScopeSecondary guifg='#aa0000' gui=underline ctermfg=81 cterm=underline")
+vim.cmd.highlight("QuickScopePrimary guifg='#00ff00' gui=underline ctermfg=155 cterm=underline")
+vim.cmd.highlight("QuickScopeSecondary guifg='#aa0000' gui=underline ctermfg=81 cterm=underline")
