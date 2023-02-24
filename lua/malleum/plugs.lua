@@ -73,6 +73,9 @@ require("toggleterm").setup {
 
 -- Lua Line
 require('lualine').setup {
+    options = {
+        color = { fg = '#000000' },
+    },
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
