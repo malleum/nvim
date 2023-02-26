@@ -65,6 +65,8 @@ lsp.setup()
 -- Cellular Automation
 map("n", "<leader>mir", "<cmd>CellularAutomaton make_it_rain<CR>")
 map("n", "<leader>mil", "<cmd>CellularAutomaton game_of_life<CR>")
+map("n", "<leader>mis", "<cmd>CellularAutomaton slide<CR>")
+map("n", "<leader>mid", "<cmd>CellularAutomaton down<CR>")
 
 -- ToggleTerm
 require("toggleterm").setup {
