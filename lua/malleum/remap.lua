@@ -26,8 +26,8 @@ map({"n", "v"}, "<leader>d", "\"_d") -- void delete
 map({"n", "v"}, "<leader>y", "\"+y") -- clipboard copy
 map({"n", "v"}, "<leader>Y", "\"+y$")
 
-map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace
-map("n", "<leader>x", "<cmd>!chmod +x %<CR>") -- executable
+map("n", "<leader>rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace
+map("n", "<leader>X", "<cmd>!chmod +x %<CR>") -- executable
 
 map("n", "<leader>b", vim.cmd.bn)
 map("n", "<leader>B", vim.cmd.bp)

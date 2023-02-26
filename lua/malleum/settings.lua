@@ -29,8 +29,8 @@ o.scrolloff = 7
 o.smartcase = true
 o.undofile = true
 o.wildmenu = true
-o.signcolumn = "number"
-o.cmdheight = 2
+o.signcolumn = "yes"
+o.cmdheight = 1
 o.termguicolors = true
 o.hidden = true
 o.updatetime = 50
@@ -61,6 +61,8 @@ require("transparent").setup({
 })
 
 vim.cmd.colorscheme('OceanicNext')
+vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
 
 -- QuickScope
 vim.cmd.highlight("QuickScopePrimary guifg='#00ff00' gui=underline ctermfg=155 cterm=underline")
