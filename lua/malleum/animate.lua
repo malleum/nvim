@@ -41,3 +41,21 @@ config2.update = function (grid)
 end
 
 require("cellular-automaton").register_animation(config2)
+
+
+local config3 = {
+    fps = 30,
+    name = 'die',
+}
+
+config3.update = function (grid)
+    for i = 1, #grid do
+        local last_char = grid[i][#(grid[i])]
+        for j = #(grid[i]), 1, -1 do
+            grid[i][j], last_char = last_char, grid[i][j]
+        end
+    end
+    return true
+end
+
+require("cellular-automaton").register_animation(config3)
