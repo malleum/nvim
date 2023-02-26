@@ -1,4 +1,3 @@
-
 -- Telescope
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files)
@@ -8,7 +7,7 @@ map("n", "<leader>fs", function()
 end)
 
 -- Treesitter
-require"nvim-treesitter.configs".setup {
+require "nvim-treesitter.configs".setup {
     ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim", "help" },
 
     sync_install = false,
@@ -60,18 +59,19 @@ lsp.ensure_installed({
 })
 
 lsp.on_attach(function(client, buf)
-  local opts = {buffer = buf, remap = false}
+    local opts = { buffer = buf, remap = false }
 
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<leader>ows", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>od", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "<leader>oca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>orr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>orn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<leader>of", function() vim.lsp.buf.format() end, opts)
 end)
 
 lsp.nvim_workspace()
@@ -94,11 +94,11 @@ require('lualine').setup {
         color = { fg = '#000000' },
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
-        lualine_x = {'searchcount', 'filetype', 'filesize'},
-        lualine_y = {'location'},
-        lualine_z = {function () return os.time() end, function () return os.date("%X") end}
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'searchcount', 'filetype', 'filesize' },
+        lualine_y = { 'location' },
+        lualine_z = { function() return os.time() end, function() return os.date("%X") end }
     },
 }

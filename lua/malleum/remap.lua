@@ -3,6 +3,7 @@ function map(m, k, r)
 end
 
 vim.g.mapleader = " "
+map("n", "<leader>", "")
 
 map("n", "<leader>uh", vim.cmd.Ex)
 map("c", "W", "w")
