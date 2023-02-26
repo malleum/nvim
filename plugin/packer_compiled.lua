@@ -232,6 +232,16 @@ _G.packer_plugins = {
     path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-magnum"] = {
+    loaded = true,
+    path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-magnum",
+    url = "https://github.com/glts/vim-magnum"
+  },
+  ["vim-radical"] = {
+    loaded = true,
+    path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-radical",
+    url = "https://github.com/glts/vim-radical"
+  },
   ["vim-sneak"] = {
     loaded = true,
     path = "/home/malleum/.local/share/nvim/site/pack/packer/start/vim-sneak",
