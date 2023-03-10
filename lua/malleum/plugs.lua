@@ -26,10 +26,10 @@ local ui = require("harpoon.ui")
 map("n", "<leader>a", mark.add_file)
 map("n", "<leader>e", ui.toggle_quick_menu)
 
-map("n", "<C-h>", function() ui.nav_file(1) end)
-map("n", "<C-t>", function() ui.nav_file(2) end)
-map("n", "<C-n>", function() ui.nav_file(3) end)
-map("n", "<C-s>", function() ui.nav_file(4) end)
+map("n", "<A-h>", function() ui.nav_file(1) end)
+map("n", "<A-t>", function() ui.nav_file(2) end)
+map("n", "<A-n>", function() ui.nav_file(3) end)
+map("n", "<A-s>", function() ui.nav_file(4) end)
 
 -- UndoTree
 map("n", "<leader>ut", vim.cmd.UndotreeToggle)
@@ -39,8 +39,8 @@ map("n", "<leader>gs", vim.cmd.Git)
 
 -- Visual Multi
 vim.cmd("let g:VM_maps = {}")
-vim.cmd("let g:VM_maps['Find Under'] = '<C-b>'")
-vim.cmd("let g:VM_maps['Find Subword Under'] = '<C-b>'")
+vim.cmd("let g:VM_maps['Find Under'] = '<C-n>'")
+vim.cmd("let g:VM_maps['Find Subword Under'] = '<C-n>'")
 
 -- LSP Zero
 local lsp = require('lsp-zero').preset({
@@ -85,7 +85,7 @@ map("n", "<leader>mid", "<cmd>CellularAutomaton down<CR>")
 
 -- ToggleTerm
 require("toggleterm").setup {
-    open_mapping = [[<C-x>]]
+    open_mapping = [[<C-\>]]
 }
 
 -- Lua Line

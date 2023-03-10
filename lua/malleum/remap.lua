@@ -23,9 +23,12 @@ map("n", "N", "Nzz")
 map("x", "<leader>p", "\"_dP") -- void paste
 
 map({"n", "v"}, "<leader>d", "\"_d") -- void delete
+map({"n", "v"}, "<leader>D", "\"_D") -- void delete
 
 map({"n", "v"}, "<leader>y", "\"+y") -- clipboard copy
 map({"n", "v"}, "<leader>Y", "\"+y$")
+
+map({"n", "v"}, "<leader>P", "\"+p") -- clipboard paste
 
 map("n", "<leader>rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace
 map("n", "<leader>X", "<cmd>!chmod +x %<CR>") -- executable
