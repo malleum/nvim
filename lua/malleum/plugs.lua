@@ -51,7 +51,7 @@ local lsp = require('lsp-zero').preset({
 })
 
 lsp.ensure_installed({
-    "jedi_language_server",
+    "pyright",
     "kotlin_language_server",
     "lua_ls",
     "jdtls",
