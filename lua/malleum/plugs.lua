@@ -8,7 +8,7 @@ end)
 
 -- Treesitter
 require "nvim-treesitter.configs".setup {
-    ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim", "help" },
+    ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim" },
 
     sync_install = false,
     auto_install = true,
