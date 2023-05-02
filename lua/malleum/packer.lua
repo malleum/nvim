@@ -21,7 +21,6 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
     use 'ThePrimeagen/harpoon'
-    use 'justinmk/vim-sneak'
     use 'unblevable/quick-scope'
     use 'ntpeters/vim-better-whitespace'
 
