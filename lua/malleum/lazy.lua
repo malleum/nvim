@@ -15,8 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 
-    'wbthomason/packer.nvim',
-
     'EdenEast/nightfox.nvim',
     'mhartington/oceanic-next',
 
