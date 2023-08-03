@@ -10,9 +10,10 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local plugins = {
 
     'wbthomason/packer.nvim',
 
@@ -23,7 +24,7 @@ require("lazy").setup({
     -- crd, crx, cro, crb
     {
         'glts/vim-radical',
-        requires = { 'glts/vim-magnum' }
+        dependencies = { 'glts/vim-magnum' }
     },
 
     {
@@ -58,7 +59,7 @@ require("lazy").setup({
 
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }
+        dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
     },
 
 
@@ -86,4 +87,6 @@ require("lazy").setup({
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     },
-})
+}
+
+require("lazy").setup(plugins, {})
