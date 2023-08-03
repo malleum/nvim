@@ -1,6 +1,7 @@
 -- Telescope
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files)
+map("n", "<leader>h", builtin.find_files)
 map("n", "<leader>fg", builtin.git_files)
 map("n", "<leader>fs", function()
     builtin.grep_string({ search = vim.fn.input("invenire > ") })
@@ -40,7 +41,7 @@ map("n", "<leader>gs", vim.cmd.Git)
 -- Visual Multi
 vim.cmd("let g:VM_maps = {}")
 vim.cmd("let g:VM_maps['Find Under'] = '<C-n>'")
-vim.cmd("let g:VM_maps['Find Subword Under'] = '<C-n>'")
+vim.cmd("let g:VM_maps['Find Subword Under'] = '<C-m>'")
 
 -- LSP Zero
 local lsp = require('lsp-zero').preset({
