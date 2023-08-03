@@ -1,9 +1,9 @@
 -- Telescope
 local builtin = require("telescope.builtin")
-map("n", "<leader>ff", builtin.find_files)
-map("n", "<leader>h", builtin.find_files)
-map("n", "<leader>fg", builtin.git_files)
-map("n", "<leader>fs", function()
+Map("n", "<leader>ff", builtin.find_files)
+Map("n", "<leader>h", builtin.find_files)
+Map("n", "<leader>fg", builtin.git_files)
+Map("n", "<leader>fs", function()
     builtin.grep_string({ search = vim.fn.input("invenire > ") })
 end)
 
@@ -24,19 +24,28 @@ require "nvim-treesitter.configs".setup {
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
-map("n", "<leader>a", mark.add_file)
-map("n", "<leader>e", ui.toggle_quick_menu)
+Map("n", "<leader>a", mark.add_file)
+Map("n", "<leader>e", ui.toggle_quick_menu)
 
-map("n", "<A-h>", function() ui.nav_file(1) end)
-map("n", "<A-t>", function() ui.nav_file(2) end)
-map("n", "<A-n>", function() ui.nav_file(3) end)
-map("n", "<A-s>", function() ui.nav_file(4) end)
+Map("n", "<A-h>", function() ui.nav_file(1) end)
+Map("n", "<A-t>", function() ui.nav_file(2) end)
+Map("n", "<A-n>", function() ui.nav_file(3) end)
+Map("n", "<A-s>", function() ui.nav_file(4) end)
+
+-- Oil
+require("oil").setup({
+    view_options = {
+        show_hidden = true,
+    },
+})
+
+Map("n", "-", vim.cmd.Oil)
 
 -- UndoTree
-map("n", "<leader>ut", vim.cmd.UndotreeToggle)
+Map("n", "<leader>ut", vim.cmd.UndotreeToggle)
 
 -- Fugitive
-map("n", "<leader>gs", vim.cmd.Git)
+Map("n", "<leader>gs", vim.cmd.Git)
 
 -- Visual Multi
 vim.cmd("let g:VM_maps = {}")
@@ -79,10 +88,10 @@ lsp.nvim_workspace()
 lsp.setup()
 
 -- Cellular Automation
-map("n", "<leader>mir", "<cmd>CellularAutomaton make_it_rain<CR>")
-map("n", "<leader>mil", "<cmd>CellularAutomaton game_of_life<CR>")
-map("n", "<leader>mis", "<cmd>CellularAutomaton slide<CR>")
-map("n", "<leader>mid", "<cmd>CellularAutomaton down<CR>")
+Map("n", "<leader>mir", "<cmd>CellularAutomaton make_it_rain<CR>")
+Map("n", "<leader>mil", "<cmd>CellularAutomaton game_of_life<CR>")
+Map("n", "<leader>mis", "<cmd>CellularAutomaton slide<CR>")
+Map("n", "<leader>mid", "<cmd>CellularAutomaton down<CR>")
 
 -- ToggleTerm
 require("toggleterm").setup {
