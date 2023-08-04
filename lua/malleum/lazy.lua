@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
         lazypath,
     })
 end
@@ -18,16 +18,38 @@ local plugins = {
     'EdenEast/nightfox.nvim',
     'mhartington/oceanic-next',
 
-    -- gA to show numbers in base 10, 2 , 8, 16
-    -- crd, crx, cro, crb
+    'ThePrimeagen/harpoon',
+    'unblevable/quick-scope',
+    'ntpeters/vim-better-whitespace',
+    'mbbill/undotree',
+    'Eandrju/cellular-automaton.nvim',
+    'xiyaowong/nvim-transparent',
+    'mg979/vim-visual-multi',
+    'tpope/vim-commentary',
+    'tpope/vim-surround',
+    'udalov/kotlin-vim',
+    'stevearc/oil.nvim',
+    'akinsho/toggleterm.nvim', version = "*", config = true,
+
     {
-        'glts/vim-radical',
-        dependencies = { 'glts/vim-magnum' }
+        "windwp/nvim-autopairs", opts = {}
     },
 
     {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        'nvim-lualine/lualine.nvim',
+        dependencies = 'kyazdani42/nvim-web-devicons'
+    },
+
+    -- gA to show numbers in base 10, 2 , 8, 16
+    -- crd crb cro crx
+    {
+        'glts/vim-radical',
+        dependencies = 'glts/vim-magnum'
+    },
+
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = 'nvim-lua/plenary.nvim'
     },
 
     {
@@ -35,56 +57,27 @@ local plugins = {
         build = ":TSUpdate"
     },
 
-    'ThePrimeagen/harpoon',
-    'unblevable/quick-scope',
-    'ntpeters/vim-better-whitespace',
-
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
-    'Eandrju/cellular-automaton.nvim',
-    'xiyaowong/nvim-transparent',
-
-    {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    },
-
-    'mg979/vim-visual-multi',
-    'tpope/vim-commentary',
-    'tpope/vim-surround',
-    'udalov/kotlin-vim',
-    'stevearc/oil.nvim',
-
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
-    },
-
-
-    'akinsho/toggleterm.nvim', version = "*", config = true,
-
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            { 'williamboman/mason.nvim' }, -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            'neovim/nvim-lspconfig',
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'hrsh7th/cmp-buffer' }, -- Optional
-            { 'hrsh7th/cmp-path' }, -- Optional
-            { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+            'hrsh7th/nvim-cmp',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-nvim-lua',
 
             -- Snippets
-            { 'L3MON4D3/LuaSnip' }, -- Required
-            { 'rafamadriz/friendly-snippets' }, -- Optional
+            'L3MON4D3/LuaSnip',
+            'rafamadriz/friendly-snippets',
         }
     },
 }
 
-require("lazy").setup(plugins, {})
+require("lazy").setup(plugins)
