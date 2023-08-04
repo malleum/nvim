@@ -1,28 +1,3 @@
--- Treesitter
-require "nvim-treesitter.configs".setup {
-    ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim" },
-
-    sync_install = true,
-    auto_install = true,
-
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-}
-
--- Harpoon
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
-
-Map("n", "<leader>a", mark.add_file)
-Map("n", "<leader>e", ui.toggle_quick_menu)
-
-Map("n", "<A-h>", function() ui.nav_file(1) end)
-Map("n", "<A-t>", function() ui.nav_file(2) end)
-Map("n", "<A-n>", function() ui.nav_file(3) end)
-Map("n", "<A-s>", function() ui.nav_file(4) end)
-
 -- Oil
 require("oil").setup({
     view_options = {

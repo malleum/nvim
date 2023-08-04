@@ -3,7 +3,6 @@ return {
     'EdenEast/nightfox.nvim',
     'mhartington/oceanic-next',
 
-    'ThePrimeagen/harpoon',
     'unblevable/quick-scope',
     'ntpeters/vim-better-whitespace',
     'mbbill/undotree',
@@ -30,11 +29,6 @@ return {
     {
         'glts/vim-radical',
         dependencies = 'glts/vim-magnum'
-    },
-
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ":TSUpdate"
     },
 
     {
