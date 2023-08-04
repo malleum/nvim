@@ -1,12 +1,3 @@
--- Telescope
-local builtin = require("telescope.builtin")
-Map("n", "<leader>ff", builtin.find_files)
-Map("n", "<leader>h", builtin.find_files)
-Map("n", "<leader>fg", builtin.git_files)
-Map("n", "<leader>fs", function()
-    builtin.grep_string({ search = vim.fn.input("invenire > ") })
-end)
-
 -- Treesitter
 require "nvim-treesitter.configs".setup {
     ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim" },
@@ -41,16 +32,15 @@ require("oil").setup({
 
 Map("n", "-", vim.cmd.Oil)
 
+-- Lazy
+Map("n", "<leader>l", vim.cmd.Lazy)
+
 -- UndoTree
 Map("n", "<leader>ut", vim.cmd.UndotreeToggle)
-
--- Fugitive
-Map("n", "<leader>gs", vim.cmd.Git)
 
 -- Visual Multi
 vim.cmd("let g:VM_maps = {}")
 vim.cmd("let g:VM_maps['Find Under'] = '<C-n>'")
-vim.cmd("let g:VM_maps['Find Subword Under'] = '<C-m>'")
 
 -- LSP Zero
 local lsp = require('lsp-zero').preset({

@@ -56,14 +56,6 @@ require("transparent").setup({
     'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
     'SignColumn', 'CursorLineNr', 'EndOfBuffer',
     },
-    -- extra_groups = {
-    --     "BufferLineTabClose",
-    --     "BufferlineBufferSelected",
-    --     "BufferLineFill",
-    --     "BufferLineBackground",
-    --     "BufferLineSeparator",
-    --     "BufferLineIndicatorSelected",
-    -- },
 })
 
 vim.cmd.colorscheme('OceanicNext')
