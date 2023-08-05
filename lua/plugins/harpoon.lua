@@ -1,13 +1,6 @@
 return {
     'ThePrimeagen/harpoon',
-    keys = {
-        "<leader>a",
-        "<leader>e",
-        "<A-h>",
-        "<A-t>",
-        "<A-n>",
-        "<A-s>",
-    },
+    event = "VeryLazy",
     config = function()
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")

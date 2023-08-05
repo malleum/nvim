@@ -1,6 +1,2 @@
-require("malleum.remap")
-require("malleum.lazy")
-require("malleum.plug_settings")
 require("malleum.settings")
-require("malleum.animate")
-require("malleum.neovide")
+require("malleum.lazy")

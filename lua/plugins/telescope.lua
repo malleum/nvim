@@ -1,12 +1,7 @@
 return {
     'nvim-telescope/telescope.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
-    keys = {
-        "<leader>ff",
-        "<leader>h",
-        "<leader>fg",
-        "<leader>fs",
-    },
+    event = "VeryLazy",
     config = function()
         local t = require("telescope.builtin")
         Map("n", "<leader>ff", t.find_files)

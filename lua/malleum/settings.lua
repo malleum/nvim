@@ -1,6 +1,4 @@
-
 local o = vim.opt
-local g = vim.g
 
 -- tabbing
 o.autoindent = true
@@ -42,26 +40,41 @@ o.swapfile = false
 o.undofile = true
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
--- Better whitespace
-g.better_whitespace_enabled = 1
-g.strip_whitespace_on_save = 1
-g.strip_whitespace_confirm = 0
-g.better_whitespace_guicolor = "darkblue"
+-- Remaps
+function Map(m, k, r)
+    vim.keymap.set(m, k, r)
+end
 
--- Colorscheme
-require("transparent").setup({
-    groups = { -- table: default groups
-    'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-    'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-    'SignColumn', 'CursorLineNr', 'EndOfBuffer',
-    },
-})
+vim.g.mapleader = " "
+Map("n", "<leader>", "")
 
-vim.cmd.colorscheme('OceanicNext')
-vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
-vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+Map("n", "<leader>uh", vim.cmd.Ex)
+Map("c", "W", "w")
+Map("n", "Y", "y$")
 
--- QuickScope
-vim.cmd.highlight("QuickScopePrimary guifg='#00ff00' gui=underline ctermfg=155 cterm=underline")
-vim.cmd.highlight("QuickScopeSecondary guifg='#aa0000' gui=underline ctermfg=81 cterm=underline")
+Map("n", "<leader>F", "mzgg=G`z")
+
+Map("v", "J", ":m '>+1<CR>gv=gv")
+Map("v", "K", ":m '<-2<CR>gv=gv")
+
+Map("n", "J", "mzJ1`z")
+Map("n", "<C-d>", "<C-d>zz")
+Map("n", "<C-u>", "<C-u>zz")
+Map("n", "n", "nzz")
+Map("n", "N", "Nzz")
+
+Map("x", "<leader>p", "\"_dP") -- void paste
+
+Map({"n", "v"}, "<leader>d", "\"_d") -- void delete
+Map({"n", "v"}, "<leader>D", "\"_D") -- void delete
+
+Map({"n", "v"}, "<leader>y", "\"+y") -- clipboard copy
+Map({"n", "v"}, "<leader>Y", "\"+y$")
+
+Map({"n", "v"}, "<leader>P", "\"+p") -- clipboard paste
+
+Map("n", "<leader>rp", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace
+Map("n", "<leader>X", "<cmd>!chmod +x %<CR>") -- executable
+
+Map("n", "<leader>b", vim.cmd.bn)
+Map("n", "<leader>B", vim.cmd.bp)

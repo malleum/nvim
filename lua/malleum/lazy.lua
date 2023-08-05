@@ -14,3 +14,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
+
+Map("n", "<leader>l", vim.cmd.Lazy)

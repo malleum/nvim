@@ -2,7 +2,7 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
-    event = "BufEnter",
+    event = "VeryLazy",
     config = function()
         require "nvim-treesitter.configs".setup {
         ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim" },
