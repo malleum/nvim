@@ -1,6 +1,7 @@
 return {
     {
         'mhartington/oceanic-next',
+        -- event = "VeryLazy",
         lazy = false,
         priority = 1000,
         config = function()
@@ -8,6 +9,10 @@ return {
             vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
             vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
         end
+    },
+    {
+        'folke/tokyonight.nvim',
+        event = "VeryLazy",
     },
     {
         'EdenEast/nightfox.nvim',
@@ -23,5 +28,8 @@ return {
             vim.g.better_whitespace_guicolor = "darkblue"
         end
     },
-    'xiyaowong/nvim-transparent',
+    {
+        'xiyaowong/nvim-transparent',
+        -- event = "VeryLazy"
+    },
 }

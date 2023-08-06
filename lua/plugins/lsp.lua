@@ -21,10 +21,9 @@ return {
     event = "VeryLazy",
     config = function()
         local lsp = require('lsp-zero').preset({
-            name = 'minimal',
-            set_lsp_keymaps = true,
-            manage_nvim_cmp = true,
-            suggest_lsp_servers = true,
+            manage_nvim_cmp = {
+                set_extra_mappings = true
+            }
         })
 
         lsp.ensure_installed({
@@ -35,7 +34,10 @@ return {
             "clangd",
         })
 
+
         lsp.on_attach(function(client, buf)
+            lsp.default_keymaps({ buffer = buf })
+
             local lsp_map = function(m, k, a) vim.keymap.set(m, k, a, { buffer = buf, remap = false }) end
 
             lsp_map("n", "gd", function() vim.lsp.buf.definition() end)
@@ -51,7 +53,17 @@ return {
             lsp_map("n", "<leader><leader>f", function() vim.lsp.buf.format() end)
         end)
 
-        lsp.nvim_workspace()
         lsp.setup()
+
+        local cmp = require("cmp")
+        cmp.setup({
+            preselect = 'item',
+            completion = {
+                completeopt = 'menu,menuone,noinsert'
+            },
+            mapping = {
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            }
+        })
     end
 }
