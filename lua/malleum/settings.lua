@@ -40,6 +40,10 @@ o.swapfile = false
 o.undofile = true
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Remaps
 function Map(m, k, r)
     vim.keymap.set(m, k, r)
