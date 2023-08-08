@@ -57,7 +57,7 @@ return {
             lsp_map("n", "<leader><leader>rr", function() vim.lsp.buf.references() end)
             lsp_map("n", "<leader><leader>rn", function() vim.lsp.buf.rename() end)
             lsp_map("n", "<leader><leader>f", function() vim.lsp.buf.format() end)
-            lsp_map("n", "<leader>t", "<cmd>Telescope lsp_references<cr>")
+            lsp_map("n", "<leader>ts", "<cmd>Telescope lsp_references<cr>")
         end)
 
         local lspconfig = require('lspconfig')

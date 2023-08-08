@@ -24,8 +24,8 @@ return {
         event = "VeryLazy"
     },
     {
-        "windwp/nvim-autopairs", opts = {},
-        event = "VeryLazy"
+        "windwp/nvim-autopairs",
+        event = "VeryLazy", opts = {}
     },
     {
         -- gA to show numbers in base 10, 2 , 8, 16
