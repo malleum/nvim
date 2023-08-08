@@ -1,5 +1,6 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
+    branch = "dev-v3",
     dependencies = {
         -- LSP Support
         'neovim/nvim-lspconfig',
@@ -26,37 +27,49 @@ return {
             }
         })
 
-        lsp.ensure_installed({
-            "pyright",
-            "kotlin_language_server",
-            "lua_ls",
-            "jdtls",
-            "clangd",
+        require("mason").setup({})
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "pyright",
+                "kotlin_language_server",
+                "lua_ls",
+                "jdtls",
+                "clangd",
+            },
+            handlers = { lsp.default_setup }
         })
 
+        lsp.extend_cmp()
+        lsp.set_sign_icons({
+            error = '✘',
+            warn = '▲',
+            hint = '⚑',
+            info = '»'
+        })
 
         lsp.on_attach(function(client, buf)
             lsp.default_keymaps({ buffer = buf })
 
             local lsp_map = function(m, k, a) vim.keymap.set(m, k, a, { buffer = buf, remap = false }) end
 
-            lsp_map("n", "gd", function() vim.lsp.buf.definition() end)
-            lsp_map("n", "K", function() vim.lsp.buf.hover() end)
-            lsp_map("n", "<leader><leader>ws", function() vim.lsp.buf.workspace_symbol() end)
             lsp_map("n", "<leader><leader>d", function() vim.diagnostic.open_float() end)
-            lsp_map("n", "[d", function() vim.diagnostic.goto_next() end)
-            lsp_map("n", "]d", function() vim.diagnostic.goto_prev() end)
             lsp_map("n", "<leader><leader>ca", function() vim.lsp.buf.code_action() end)
             lsp_map("n", "<leader><leader>rr", function() vim.lsp.buf.references() end)
             lsp_map("n", "<leader><leader>rn", function() vim.lsp.buf.rename() end)
-            lsp_map("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
             lsp_map("n", "<leader><leader>f", function() vim.lsp.buf.format() end)
+            lsp_map("n", "<leader>t", "<cmd>Telescope lsp_references<cr>")
         end)
 
-        lsp.setup()
+        local lspconfig = require('lspconfig')
+        lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+        lspconfig.pyright.setup({})
 
         local cmp = require("cmp")
         cmp.setup({
+            sources = {
+                { name = "nvim_lsp" },
+                { name = "buffer" },
+            },
             preselect = 'item',
             completion = {
                 completeopt = 'menu,menuone,noinsert'
@@ -65,5 +78,6 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }
         })
+        lsp.setup()
     end
 }
