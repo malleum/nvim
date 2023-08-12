@@ -35,6 +35,7 @@ return {
                 "lua_ls",
                 "jdtls",
                 "clangd",
+                "jsonls",
             },
             handlers = { lsp.default_setup }
         })
@@ -63,6 +64,7 @@ return {
         local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.pyright.setup({})
+        lspconfig.jsonls.setup({})
 
         local cmp = require("cmp")
         cmp.setup({
