@@ -1,7 +1,6 @@
 return {
     {
         'mhartington/oceanic-next',
-        -- event = "VeryLazy",
         lazy = false,
         priority = 1000,
         config = function()
@@ -30,6 +29,5 @@ return {
     },
     {
         'xiyaowong/nvim-transparent',
-        -- event = "VeryLazy"
     },
 }
