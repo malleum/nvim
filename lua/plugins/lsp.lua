@@ -12,12 +12,12 @@ return {
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
-        'saadparwaiz1/cmp_luasnip',
         'hrsh7th/cmp-nvim-lua',
+        -- 'saadparwaiz1/cmp_luasnip', --TODO: figure out snippets
 
-        -- Snippets
-        'L3MON4D3/LuaSnip',
-        'rafamadriz/friendly-snippets',
+        -- -- Snippets
+        -- {'L3MON4D3/LuaSnip', version = "2.*", build = "make install_jsregexp"},
+        -- 'rafamadriz/friendly-snippets',
     },
     event = "VeryLazy",
     config = function()
@@ -65,11 +65,20 @@ return {
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.pyright.setup({})
         lspconfig.jsonls.setup({})
+        lspconfig.clangd.setup({})
 
         local cmp = require("cmp")
         cmp.setup({
+            -- snippet = {
+            --     expand = function(args)
+            --         require'luasnip'.lsp_expand(args.body)
+            --     end
+            -- },
             sources = {
                 { name = "nvim_lsp" },
+                -- { name = "luasnip" },
+                { name = "nvim_lua" },
+                { name = "path" },
                 { name = "buffer" },
             },
             preselect = 'item',
