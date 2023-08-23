@@ -19,7 +19,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "05fe2c38a3bd4f889ac13f1735685ab348d95346" },
   "nvim-web-devicons": { "branch": "master", "commit": "cfc8824cc1db316a276b36517f093baccb8e799a" },
   "oceanic-next": { "branch": "master", "commit": "09833f72d5ba23de2e8bcae18f479f326f5f677a" },
-  "oil.nvim": { "branch": "master", "commit": "bfa0e8705eb83a0724aed6d5dc9d21aa62a8986b" },
+  "oil.nvim": { "branch": "master", "commit": "b61bc9b701a3cfb05cb6668446b0303cda7435e6" },
   "plenary.nvim": { "branch": "master", "commit": "267282a9ce242bbb0c5dc31445b6d353bed978bb" },
   "quick-scope": { "branch": "master", "commit": "256d81e391a22eeb53791ff62ce65f870418fa71" },
   "telescope.nvim": { "branch": "master", "commit": "2d92125620417fbea82ec30303823e3cd69e90e8" },

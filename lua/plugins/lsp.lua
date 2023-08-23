@@ -30,12 +30,12 @@ return {
         require("mason").setup({})
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "pyright",
                 "kotlin_language_server",
                 "lua_ls",
-                "jdtls",
+                "pyright",
                 "clangd",
                 "jsonls",
+                "jdtls",
             },
             handlers = { lsp.default_setup }
         })
@@ -62,10 +62,12 @@ return {
         end)
 
         local lspconfig = require('lspconfig')
+        lspconfig.kotlin_language_server.setup({})
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.pyright.setup({})
-        lspconfig.jsonls.setup({})
         lspconfig.clangd.setup({})
+        lspconfig.jsonls.setup({})
+        lspconfig.jdtls.setup({})
 
         local cmp = require("cmp")
         cmp.setup({
