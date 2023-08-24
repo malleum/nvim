@@ -91,6 +91,5 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }
         })
-        lsp.setup()
     end
 }
