@@ -34,6 +34,7 @@ return {
                 "pyright",
                 "jsonls",
                 "jdtls",
+                "gopls",
             },
             handlers = { lsp.default_setup }
         })
@@ -66,6 +67,7 @@ return {
         lspconfig.clangd.setup({})
         lspconfig.jsonls.setup({})
         lspconfig.jdtls.setup({})
+        lspconfig.gopls.setup({})
 
         require("luasnip.loaders.from_vscode").lazy_load()
 
