@@ -20,18 +20,7 @@ return {
         event = "VeryLazy"
     },
     {
-        'udalov/kotlin-vim',
-        event = "VeryLazy"
-    },
-    {
         "windwp/nvim-autopairs",
         event = "VeryLazy", opts = {}
-    },
-    {
-        -- gA to show numbers in base 10, 2 , 8, 16
-        -- crd crb cro crx
-        'glts/vim-radical',
-        dependencies = 'glts/vim-magnum',
-        event = "VeryLazy"
     },
 }
