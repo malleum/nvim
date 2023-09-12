@@ -23,4 +23,8 @@ return {
         "windwp/nvim-autopairs",
         event = "VeryLazy", opts = {}
     },
+    {
+        "tpope/vim-fugitive",
+        event = "VeryLazy"
+    },
 }

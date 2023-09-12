@@ -18,6 +18,10 @@ return {
         -- Snippets
         { 'L3MON4D3/LuaSnip', version = "2.*", build = "make install_jsregexp" },
         'rafamadriz/friendly-snippets',
+
+        -- Formatting
+        "mhartington/formatter.nvim",
+        event = "VeryLazy"
     },
     event = "VeryLazy",
     config = function()
@@ -47,6 +51,16 @@ return {
             info = '»'
         })
 
+        lsp.format_mapping('gq', {
+            format_opts = {
+                async = false,
+                timeout_ms = 10000,
+            },
+            servers = {
+                ['black'] = { 'python' },
+            }
+        })
+
         lsp.on_attach(function(client, buf)
             lsp.default_keymaps({ buffer = buf })
 
@@ -56,7 +70,7 @@ return {
             lsp_map("n", "<leader><leader>ca", function() vim.lsp.buf.code_action() end)
             lsp_map("n", "<leader><leader>rr", function() vim.lsp.buf.references() end)
             lsp_map("n", "<leader><leader>rn", function() vim.lsp.buf.rename() end)
-            lsp_map("n", "<leader><leader>f", function() vim.lsp.buf.format() end)
+            lsp_map("n", "<leader><leader>f", function() vim.lsp.buf.format({ async = false, timeout_ms = 10000}) end)
             lsp_map("n", "<leader>ts", "<cmd>Telescope lsp_references<cr>")
         end)
 
@@ -97,5 +111,8 @@ return {
                 ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
             }
         })
+
+        local format = require("formatter").setup({})
+
     end
 }
