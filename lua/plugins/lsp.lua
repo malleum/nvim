@@ -48,19 +48,34 @@ return {
         })
 
         lsp.on_attach(function(client, buf)
-            lsp.default_keymaps({ buffer = buf })
+            lsp.default_keymaps({
+                buffer = buf,
+                include = {
+                    "K",  -- Hover
+                    "gl", -- diagnostic open float
+                    "gr", -- references
+                    "gd", -- definition
+                    "gD", -- declaration
+                    "gi", -- implementation
+                    "go", -- type definition
+                    "gs"  -- signiture help
+                }
+            })
 
             local lsp_map = function(m, k, a) vim.keymap.set(m, k, a, { buffer = buf, remap = false }) end
 
             lsp_map("n", "<leader><leader>d", function() vim.diagnostic.open_float() end)
-            lsp_map("n", "<leader><leader>ca", function() vim.lsp.buf.code_action() end)
             lsp_map("n", "<leader><leader>rr", function() vim.lsp.buf.references() end)
-            lsp_map("n", "<leader><leader>rn", function() vim.lsp.buf.rename() end)
+
+            lsp_map("n", "<leader>e", function() vim.diagnostic.goto_next() end)
+            lsp_map("n", "<leader>E", function() vim.diagnostic.goto_prev() end)
+            lsp_map("n", "<leader>rn", function() vim.lsp.buf.rename() end)
+            lsp_map("n", "<leader><leader>ca", function() vim.lsp.buf.code_action() end)
             lsp_map("n", "<leader><leader>f", function()
                 if vim.bo.filetype == "python" then
                     vim.cmd([[Format]])
                 else
-                    vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+                    vim.lsp.buf.format({ async = true, timeout_ms = 5000 })
                 end
             end)
             lsp_map("n", "<leader>ts", "<cmd>Telescope lsp_references<cr>")
