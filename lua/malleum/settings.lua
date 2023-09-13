@@ -82,3 +82,5 @@ Map("n", "<leader>X", "<cmd>!chmod +x %<CR>") -- executable
 
 Map("n", "<leader>b", vim.cmd.bn)
 Map("n", "<leader>B", vim.cmd.bp)
+Map("n", "<leader>c", vim.cmd.cn)
+Map("n", "<leader>C", vim.cmd.cp)
