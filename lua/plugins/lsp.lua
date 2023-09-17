@@ -35,6 +35,7 @@ return {
                 "jsonls",
                 "jdtls",
                 "gopls",
+                "rnix",
             },
             handlers = { lsp.default_setup }
         })
@@ -59,26 +60,24 @@ return {
                     "gi", -- implementation
                     "go", -- type definition
                     "gs"  -- signiture help
-                }
+                },
+                exclude = { "f2", "f3", "f4", "[d", "]d" }
             })
 
             local lsp_map = function(m, k, a) vim.keymap.set(m, k, a, { buffer = buf, remap = false }) end
-
-            lsp_map("n", "<leader><leader>d", function() vim.diagnostic.open_float() end)
-            lsp_map("n", "<leader><leader>rr", function() vim.lsp.buf.references() end)
 
             lsp_map("n", "<leader>e", function() vim.diagnostic.goto_next() end)
             lsp_map("n", "<leader>E", function() vim.diagnostic.goto_prev() end)
             lsp_map("n", "<leader>rn", function() vim.lsp.buf.rename() end)
             lsp_map("n", "<leader><leader>ca", function() vim.lsp.buf.code_action() end)
+            lsp_map("n", "<leader>ts", "<cmd>Telescope lsp_references<cr>")
             lsp_map("n", "<leader><leader>f", function()
-                if vim.bo.filetype == "python" then
+                if vim.bo.filetype == "python" or vim.bo.filetype == "nix" then
                     vim.cmd([[Format]])
                 else
                     vim.lsp.buf.format({ async = true, timeout_ms = 5000 })
                 end
             end)
-            lsp_map("n", "<leader>ts", "<cmd>Telescope lsp_references<cr>")
         end)
 
         local lspconfig = require('lspconfig')
@@ -89,6 +88,7 @@ return {
         lspconfig.jsonls.setup({})
         lspconfig.jdtls.setup({})
         lspconfig.gopls.setup({})
+        lspconfig.rnix.setup({})
 
         require("luasnip.loaders.from_vscode").lazy_load()
 
