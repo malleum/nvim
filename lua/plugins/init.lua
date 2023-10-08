@@ -21,10 +21,18 @@ return {
     },
     {
         "windwp/nvim-autopairs",
-        event = "VeryLazy", opts = {}
+        event = "VeryLazy",
+        opts = {}
     },
     {
         "tpope/vim-fugitive",
         event = "VeryLazy"
+    },
+    {
+        'mbbill/undotree',
+        event = "VeryLazy",
+        config = function ()
+            Map("n", "<leader>ut", vim.cmd.UndotreeToggle)
+        end
     },
 }

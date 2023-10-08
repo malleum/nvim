@@ -31,11 +31,11 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "kotlin_language_server",
+                "nil_ls", "rnix",
                 "pyright",
                 "jsonls",
                 "jdtls",
                 "gopls",
-                "rnix",
             },
             handlers = { lsp.default_setup }
         })
@@ -89,6 +89,7 @@ return {
         lspconfig.jdtls.setup({})
         lspconfig.gopls.setup({})
         lspconfig.rnix.setup({})
+        lspconfig.nil_ls.setup({})
 
         require("luasnip.loaders.from_vscode").lazy_load()
 
