@@ -31,8 +31,15 @@ return {
     {
         'mbbill/undotree',
         event = "VeryLazy",
-        config = function ()
+        config = function()
             Map("n", "<leader>ut", vim.cmd.UndotreeToggle)
+        end
+    },
+    {
+        'aserowy/tmux.nvim',
+        event = "VeryLazy",
+        config = function()
+            require("tmux").setup {}
         end
     },
 }
