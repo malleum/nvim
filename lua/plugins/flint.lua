@@ -8,7 +8,8 @@ return {
                 log_level = vim.log.levels.WARN,
                 filetype = {
                     python = {
-                        require("formatter.filetypes.python").black
+                        require("formatter.filetypes.python").black,
+                        require("formatter.filetypes.python").isort
                     },
                     nix = {
                         require("formatter.filetypes.nix").nixfmt
