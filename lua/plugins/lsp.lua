@@ -14,9 +14,10 @@ return {
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-nvim-lua',
         'saadparwaiz1/cmp_luasnip',
+        { "folke/neoconf.nvim", cmd = "Neoconf" },
 
         -- Snippets
-        { 'L3MON4D3/LuaSnip', version = "2.*", build = "make install_jsregexp" },
+        { 'L3MON4D3/LuaSnip',   version = "2.*", build = "make install_jsregexp" },
         'rafamadriz/friendly-snippets',
     },
     event = "VeryLazy",
