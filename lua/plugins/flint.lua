@@ -1,24 +1,20 @@
 return {
     {
-        "mhartington/formatter.nvim",
+        "stevearc/conform.nvim",
+        opts = {},
         event = "VeryLazy",
         config = function()
-            require("formatter").setup {
-                logging = true,
-                log_level = vim.log.levels.WARN,
-                filetype = {
-                    python = {
-                        require("formatter.filetypes.python").black,
-                        require("formatter.filetypes.python").isort
-                    },
-                    nix = {
-                        require("formatter.filetypes.nix").nixfmt
-                    },
-                    ["*"] = {
-                        require("formatter.filetypes.any").remove_trailing_whitespace
-                    }
-                }
-            }
+            require("conform").setup({
+                formatters_by_ft = {
+                    python = { "ruff_format" },
+                    nix = { "alejandra" },
+                    ["*"] = { "trim_whitespace" },
+                },
+                format_on_save = {
+                    lsp_fallback = true,
+                    timeout_ms = 500,
+                },
+            })
         end
     },
     {

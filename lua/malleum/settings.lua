@@ -9,7 +9,7 @@ o.softtabstop = 4
 o.tabstop = 4
 
 -- settings
-o.mouse = "a"
+o.mouse = ""
 o.autoread = true
 o.autowrite = true
 o.cursorcolumn = true

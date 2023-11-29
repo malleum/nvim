@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     config = function()
         require "nvim-treesitter.configs".setup {
-        ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim" },
+        ensure_installed = { "fish", "python", "java", "kotlin", "c", "lua", "vim", "nix"},
 
         sync_install = true,
         auto_install = true,
