@@ -29,6 +29,19 @@ return {
         })
 
         require("mason").setup({})
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "gopls",
+                "jdtls",
+                "jsonls",
+                "kotlin_language_server",
+                "nil_ls",
+                "pyright",
+                "rnix",
+            },
+            handlers = { lsp.default_setup }
+        })
+
 
         lsp.extend_cmp()
         lsp.set_sign_icons({
@@ -61,7 +74,9 @@ return {
             lsp_map("n", "<leader>rn", function() vim.lsp.buf.rename() end)
             lsp_map("n", "<leader><leader>ca", function() vim.lsp.buf.code_action() end)
             lsp_map("n", "<leader>ts", "<cmd>Telescope lsp_references<cr>")
-            lsp_map("n", "<leader><leader>f", function() vim.cmd([[conform.format()]]) end)
+
+            lsp_map("n", "<leader><leader>f",
+                function() require("conform").format({ async = true, lsp_fallback = true }) end)
         end)
 
         local lspconfig = require('lspconfig')
