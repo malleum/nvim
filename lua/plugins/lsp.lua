@@ -1,6 +1,6 @@
 return {
     'VonHeikemen/lsp-zero.nvim',
-    branch = "dev-v3",
+    branch = "v3.x",
     dependencies = {
         -- LSP Support
         'neovim/nvim-lspconfig',
@@ -13,7 +13,6 @@ return {
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-nvim-lua',
-        'saadparwaiz1/cmp_luasnip',
         { "folke/neoconf.nvim", cmd = "Neoconf" },
 
         -- Snippets
@@ -29,6 +28,7 @@ return {
         })
 
         require("mason").setup({})
+        Map("n", "<leader>m", vim.cmd.Mason)
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "gopls",
