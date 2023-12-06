@@ -21,6 +21,32 @@ return {
     },
     event = "VeryLazy",
     config = function()
+        local function get_hostname()
+            local file = io.popen("hostname")
+            if file == nil then return end
+            local hostname = file:read("*a")
+            file:close()
+            return hostname:match("^(.-)\n?$")
+        end
+        local hostname = get_hostname()
+
+        local extra_langs = {
+            "pyright",
+            "lua_ls",
+            "jsonls",
+        }
+        if hostname ~= "sudoarch" then
+            extra_langs = {
+                "gopls",
+                "jdtls",
+                "kotlin_language_server",
+                "nil_ls",
+                "rnix",
+                "pyright",
+                "jsonls",
+            }
+        end
+
         local lsp = require('lsp-zero').preset({
             manage_nvim_cmp = {
                 set_extra_mappings = true
@@ -30,15 +56,7 @@ return {
         require("mason").setup({})
         Map("n", "<leader>m", vim.cmd.Mason)
         require("mason-lspconfig").setup({
-            ensure_installed = {
-                "gopls",
-                "jdtls",
-                "jsonls",
-                "kotlin_language_server",
-                "nil_ls",
-                "pyright",
-                "rnix",
-            },
+            ensure_installed = extra_langs,
             handlers = { lsp.default_setup }
         })
 
@@ -80,15 +98,18 @@ return {
         end)
 
         local lspconfig = require('lspconfig')
-        lspconfig.kotlin_language_server.setup({})
         lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
         lspconfig.pyright.setup({})
-        lspconfig.clangd.setup({})
         lspconfig.jsonls.setup({})
-        lspconfig.jdtls.setup({})
-        lspconfig.gopls.setup({})
-        lspconfig.rnix.setup({})
-        lspconfig.nil_ls.setup({})
+
+        if hostname ~= "sudoarch" then
+            lspconfig.kotlin_language_server.setup({})
+            lspconfig.clangd.setup({})
+            lspconfig.jdtls.setup({})
+            lspconfig.gopls.setup({})
+            lspconfig.rnix.setup({})
+            lspconfig.nil_ls.setup({})
+        end
 
         require("luasnip.loaders.from_vscode").lazy_load()
 

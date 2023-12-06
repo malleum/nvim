@@ -11,8 +11,11 @@ return {
                     ["*"] = { "trim_whitespace" },
                 },
                 format_on_save = {
-                    lsp_fallback = true,
-                    timeout_ms = 500,
+                    timeout_ms = 50,
+                    lsp_fallback = false,
+                    formatters_by_ft = {
+                        ["*"] = { "trim_whitespace" }
+                    }
                 },
             })
         end
