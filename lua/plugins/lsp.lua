@@ -21,21 +21,28 @@ return {
     },
     event = "VeryLazy",
     config = function()
-        local function get_hostname()
-            local file = io.popen("hostname")
-            if file == nil then return end
-            local hostname = file:read("*a")
-            file:close()
-            return hostname:match("^(.-)\n?$")
+        local function isNixOS()
+            local file = io.open("/etc/os-release", "r")
+
+            if file then
+                local content = file:read("*all")
+                file:close()
+
+                -- Check if the content of the file contains "NixOS"
+                return string.match(content, "NixOS") ~= nil
+            else
+                return false -- File not found, not NixOS
+            end
         end
-        local hostname = get_hostname()
+
+        local nixhost = isNixOS()
 
         local extra_langs = {
             "pyright",
             "lua_ls",
             "jsonls",
         }
-        if hostname ~= "sudoarch" then
+        if nixhost then
             extra_langs = {
                 "gopls",
                 "jdtls",
@@ -102,7 +109,7 @@ return {
         lspconfig.pyright.setup({})
         lspconfig.jsonls.setup({})
 
-        if hostname ~= "sudoarch" then
+        if nixhost then
             lspconfig.kotlin_language_server.setup({})
             lspconfig.clangd.setup({})
             lspconfig.jdtls.setup({})
