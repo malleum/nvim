@@ -53,5 +53,10 @@ return {
     {
         "mboughaba/i3config.vim",
         event = "VeryLazy"
+    },
+    {
+        "j-hui/fidget.nvim",
+        opts = {},
+        event = "VeryLazy"
     }
 }
