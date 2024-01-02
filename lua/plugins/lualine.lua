@@ -10,8 +10,17 @@ return {
                 lualine_c = { 'filename' },
                 lualine_x = { 'searchcount', 'filetype', 'filesize' },
                 lualine_y = { 'location' },
-                lualine_z = { function() return os.time() end}
-            },
+                lualine_z = {
+                    function()
+                        local handle = io.popen("curl -s joshammer.xyz/mt")
+                        if handle == nil then
+                            return
+                        end
+                        local result = handle:read("*a")
+                        handle:close()
+                        return result
+                    end
+                } },
         }
     end
 }
