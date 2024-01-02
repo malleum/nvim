@@ -4,6 +4,13 @@ return {
     event = "VeryLazy",
     config = function()
         require('lualine').setup {
+            options = {
+                refresh = {
+                    statusline = 864,
+                    tabline = 864,
+                    winbar = 864
+                }
+            },
             sections = {
                 lualine_a = { 'mode' },
                 lualine_b = { 'branch', 'diff', 'diagnostics' },
