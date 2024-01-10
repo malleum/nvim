@@ -58,5 +58,9 @@ return {
         "j-hui/fidget.nvim",
         opts = {},
         event = "VeryLazy"
+    },
+    {
+        "thosakwe/vim-flutter",
+        event = "VeryLazy"
     }
 }
