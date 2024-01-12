@@ -112,6 +112,7 @@ return {
         if nixhost then
             lspconfig.kotlin_language_server.setup({})
             lspconfig.clangd.setup({})
+            lspconfig.dartls.setup({})
             lspconfig.jdtls.setup({})
             lspconfig.gopls.setup({})
             lspconfig.rnix.setup({})
