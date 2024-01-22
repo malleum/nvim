@@ -19,13 +19,23 @@ return {
                 lualine_y = { 'location' },
                 lualine_z = {
                     function()
-                        local handle = io.popen("curl -s joshammer.xyz/mt")
+                        local function splitString(inputString, delimiter)
+                            local result = {}
+                            for match in (inputString .. delimiter):gmatch("(.-)" .. delimiter) do
+                                table.insert(result, match)
+                            end
+                            return result
+                        end
+
+                        local handle = io.popen("date '+%H:%M:%S:%3N'")
                         if handle == nil then
                             return
                         end
                         local result = handle:read("*a")
                         handle:close()
-                        return result
+                        local time = splitString(result, ":")
+                        local chrons = math.floor((time[1] * 3600 + time[2] * 60 + time[3] + time[4] / 1000) / .864)
+                        return chrons
                     end
                 } },
         }
