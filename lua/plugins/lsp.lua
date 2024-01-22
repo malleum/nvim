@@ -45,12 +45,14 @@ return {
         if nixhost then
             extra_langs = {
                 "gopls",
+                "html",
+                "htmx",
                 "jdtls",
+                "jsonls",
                 "kotlin_language_server",
                 "nil_ls",
-                "rnix",
                 "pyright",
-                "jsonls",
+                "rnix",
             }
         end
 
@@ -110,13 +112,15 @@ return {
         lspconfig.jsonls.setup({})
 
         if nixhost then
-            lspconfig.kotlin_language_server.setup({})
             lspconfig.clangd.setup({})
             lspconfig.dartls.setup({})
-            lspconfig.jdtls.setup({})
             lspconfig.gopls.setup({})
-            lspconfig.rnix.setup({})
+            lspconfig.html.setup({})
+            lspconfig.htmx.setup({})
+            lspconfig.jdtls.setup({})
+            lspconfig.kotlin_language_server.setup({})
             lspconfig.nil_ls.setup({})
+            lspconfig.rnix.setup({})
         end
 
         require("luasnip.loaders.from_vscode").lazy_load()
