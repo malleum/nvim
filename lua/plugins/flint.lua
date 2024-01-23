@@ -10,13 +10,6 @@ return {
                     nix = { "alejandra" },
                     ["*"] = { "trim_whitespace" },
                 },
-                format_on_save = {
-                    timeout_ms = 50,
-                    lsp_fallback = false,
-                    formatters_by_ft = {
-                        ["*"] = { "trim_whitespace" }
-                    }
-                },
             })
         end
     },
