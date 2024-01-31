@@ -64,7 +64,7 @@ return {
         event = "VeryLazy"
     },
     {
-        "xuhdev/vim-latex-live-preview",
+        "lervag/vimtex",
         event = "VeryLazy"
     }
 }
