@@ -62,5 +62,9 @@ return {
     {
         "thosakwe/vim-flutter",
         event = "VeryLazy"
+    },
+    {
+        "xuhdev/vim-latex-live-preview",
+        event = "VeryLazy"
     }
 }
