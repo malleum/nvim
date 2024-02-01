@@ -50,6 +50,7 @@ function Map(m, k, r)
 end
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 Map("n", "<leader>", "")
 
 Map("c", "W", "w")
