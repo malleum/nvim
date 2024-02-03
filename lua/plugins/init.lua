@@ -25,10 +25,6 @@ return {
         opts = {}
     },
     {
-        "tpope/vim-fugitive",
-        event = "VeryLazy"
-    },
-    {
         'mbbill/undotree',
         event = "VeryLazy",
         config = function()
@@ -49,10 +45,6 @@ return {
         config = function()
             require('leap').add_default_mappings()
         end
-    },
-    {
-        "mboughaba/i3config.vim",
-        event = "VeryLazy"
     },
     {
         "j-hui/fidget.nvim",
