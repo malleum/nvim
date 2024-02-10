@@ -4,9 +4,15 @@ return {
     event = "VeryLazy",
     config = function()
         local t = require("telescope.builtin")
-        Map("n", "<leader>h", t.find_files)
-        Map("n", "<leader>fg", t.git_files)
-        Map("n", "<leader>fd", ":Telescope diagnostics<cr>")
-        Map("n", "<leader>fs", function() t.grep_string({ search = vim.fn.input("invenire > ") }) end)
+
+        Map("n", "<C-p>", t.find_files)
+        Map("n", "<leader>pp", t.git_files)
+        Map("n", "<leader>pd", t.diagnostics)
+        Map("n", "<leader>ph", t.help_tags)
+        Map("n", "<leader>pr", t.lsp_references)
+
+        Map("n", "<leader>ps", function() t.grep_string({ search = vim.fn.input("invenire > ") }) end)
+        Map("n", "<leader>pws", function() t.grep_string({ search = vim.fn.expand("<cword>") }) end)
+        Map("n", "<leader>pWs", function() t.grep_string({ search = vim.fn.expand("<cWORD>") }) end)
     end,
 }

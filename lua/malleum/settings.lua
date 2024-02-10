@@ -50,7 +50,8 @@ function Map(m, k, r)
 end
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
+
 Map("n", "<leader>", "")
 
 Map("c", "W", "w")
@@ -67,14 +68,13 @@ Map("n", "<C-u>", "<C-u>zz")
 Map("n", "n", "nzz")
 Map("n", "N", "Nzz")
 
-Map("x", "<leader>p", "\"_dP")                -- void paste
+Map("x", "<leader>p", "\"_dP")         -- void paste
 
-Map({ "n", "v" }, "<leader>d", "\"_d")        -- void delete
-Map({ "n", "v" }, "<leader>D", "\"_D")        -- void delete
+Map({ "n", "v" }, "<leader>d", "\"_d") -- void delete
+Map({ "n", "v" }, "<leader>D", "\"_D") -- void delete
 
-Map({ "n", "v" }, "<leader>y", "\"+y")        -- clipboard copy
+Map({ "n", "v" }, "<leader>y", "\"+y") -- clipboard copy
 Map({ "n", "v" }, "<leader>Y", "\"+y$")
-Map("n", "<leader>X", "<cmd>!chmod +x %<CR>") -- executable
 
 Map("n", "<leader>c", vim.cmd.cn)
 Map("n", "<leader>C", vim.cmd.cp)
