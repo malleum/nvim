@@ -18,6 +18,8 @@ return {
         -- Snippets
         { 'L3MON4D3/LuaSnip',   version = "2.*", build = "make install_jsregexp" },
         'rafamadriz/friendly-snippets',
+        'saadparwaiz1/cmp_luasnip',
+
     },
     event = "VeryLazy",
     config = function()
@@ -89,15 +91,15 @@ return {
                     "gD", -- declaration
                     "gi", -- implementation
                     "go", -- type definition
-                    "gs"  -- signiture help
+                    "gs", -- signiture help
+                    "[d", -- next/prev error
+                    "]d",
                 },
-                exclude = { "f2", "f3", "f4", "[d", "]d" }
+                exclude = { "f2", "f3", "f4" }
             })
 
             local lsp_map = function(m, k, a) vim.keymap.set(m, k, a, { buffer = buf, remap = false }) end
 
-            lsp_map("n", "<leader>e", function() vim.diagnostic.goto_next() end)
-            lsp_map("n", "<leader>E", function() vim.diagnostic.goto_prev() end)
             lsp_map("n", "<leader>rn", function() vim.lsp.buf.rename() end)
             lsp_map("n", "<leader><leader>ca", function() vim.lsp.buf.code_action() end)
             lsp_map("n", "<leader>ts", "<cmd>Telescope lsp_references<cr>")
