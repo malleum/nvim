@@ -24,13 +24,18 @@ return {
         end
     },
     {
-        "ggandor/leap.nvim",
+        "ggandor/leap-spooky.nvim",
         event = "VeryLazy",
-        dependencies = { "tpope/vim-repeat" },
+        dependencies = {
+            "tpope/vim-repeat",
+            "ggandor/leap.nvim",
+        },
         config = function()
             require('leap').add_default_mappings()
             vim.keymap.del({ 'x', 'o' }, 'x')
             vim.keymap.del({ 'x', 'o' }, 'X')
+
+            require("leap-spooky").setup()
         end
     },
     {
