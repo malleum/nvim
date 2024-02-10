@@ -5,7 +5,8 @@ return {
     config = function()
         local t = require("telescope.builtin")
 
-        Map("n", "<C-p>", t.find_files)
+        Map("n", "<leader>h", t.find_files)
+        Map("n", "<C-p>", t.git_files)
         Map("n", "<leader>pp", t.git_files)
         Map("n", "<leader>pd", t.diagnostics)
         Map("n", "<leader>ph", t.help_tags)

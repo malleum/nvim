@@ -1,13 +1,5 @@
 return {
     {
-        'unblevable/quick-scope',
-        event = "VeryLazy",
-        config = function()
-            vim.cmd.highlight("QuickScopePrimary guifg='#00ff00' gui=underline ctermfg=155 cterm=underline")
-            vim.cmd.highlight("QuickScopeSecondary guifg='#aa0000' gui=underline ctermfg=81 cterm=underline")
-        end
-    },
-    {
         'mg979/vim-visual-multi',
         event = "VeryLazy"
     },
@@ -32,18 +24,13 @@ return {
         end
     },
     {
-        'aserowy/tmux.nvim',
-        event = "VeryLazy",
-        config = function()
-            require("tmux").setup {}
-        end
-    },
-    {
         "ggandor/leap.nvim",
         event = "VeryLazy",
         dependencies = { "tpope/vim-repeat" },
         config = function()
             require('leap').add_default_mappings()
+            vim.keymap.del({ 'x', 'o' }, 'x')
+            vim.keymap.del({ 'x', 'o' }, 'X')
         end
     },
     {

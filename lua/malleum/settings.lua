@@ -52,8 +52,6 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-Map("n", "<leader>", "")
-
 Map("c", "W", "w")
 Map("n", "Y", "y$")
 
