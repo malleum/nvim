@@ -44,6 +44,7 @@ return {
 
         local extra_langs = {
             "pyright",
+            "isort",
             "lua_ls",
             "jsonls",
         }
