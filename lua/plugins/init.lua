@@ -57,5 +57,14 @@ return {
     {
         "mboughaba/i3config.vim",
         event = "VeryLazy"
+    },
+    {
+        "urxvtcd/vim-indent-object",
+        event = "VeryLazy",
+        config = function()
+            Map("x", "ii", "<Plug>(indent-object_linewise-none)")
+            Map("x", "<C-o>", "<Plug>(indent-object_repeat)")
+        end
+
     }
 }
