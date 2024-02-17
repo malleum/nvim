@@ -63,6 +63,7 @@ return {
         event = "VeryLazy",
         config = function()
             Map("x", "ii", "<Plug>(indent-object_linewise-none)")
+            Map("x", "ai", "<Plug>(indent-object_linewise-start)")
             Map("x", "<C-o>", "<Plug>(indent-object_repeat)")
         end
 
