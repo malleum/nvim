@@ -20,6 +20,9 @@ return {
         'rafamadriz/friendly-snippets',
         'saadparwaiz1/cmp_luasnip',
 
+        -- Yooo
+        { "j-hui/fidget.nvim", opts = {} }
+
     },
     event = "VeryLazy",
     config = function()
