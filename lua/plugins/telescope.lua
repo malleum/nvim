@@ -1,6 +1,9 @@
 return {
     'nvim-telescope/telescope.nvim',
-    dependencies = 'nvim-lua/plenary.nvim',
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        "nvim-telescope/telescope-fzy-native.nvim",
+    },
     event = "VeryLazy",
     config = function()
         local t = require("telescope.builtin")
@@ -15,5 +18,15 @@ return {
         Map("n", "<leader>ps", function() t.grep_string({ search = vim.fn.input("invenire > ") }) end)
         Map("n", "<leader>pws", function() t.grep_string({ search = vim.fn.expand("<cword>") }) end)
         Map("n", "<leader>pWs", function() t.grep_string({ search = vim.fn.expand("<cWORD>") }) end)
+
+        require('telescope').setup {
+            extensions = {
+                fzy_native = {
+                    override_generic_sorter = false,
+                    override_file_sorter = true,
+                }
+            }
+        }
+        require('telescope').load_extension('fzy_native')
     end,
 }
