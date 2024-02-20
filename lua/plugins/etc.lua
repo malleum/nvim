@@ -1,9 +1,5 @@
 return {
     {
-        "thosakwe/vim-flutter",
-        event = "VeryLazy"
-    },
-    {
         "lervag/vimtex",
         config = function()
             vim.g.vimtex_view_method = "Okular"

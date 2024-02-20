@@ -21,7 +21,8 @@ return {
         'saadparwaiz1/cmp_luasnip',
 
         -- Yooo
-        { "j-hui/fidget.nvim", opts = {} }
+        { 'akinsho/flutter-tools.nvim' },
+        { "j-hui/fidget.nvim",         opts = {} },
 
     },
     event = "VeryLazy",
@@ -136,7 +137,7 @@ return {
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require 'luasnip'.lsp_expand(args.body)
+                    require('luasnip').lsp_expand(args.body)
                 end
             },
             sources = {
@@ -152,8 +153,14 @@ return {
             },
             mapping = {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                ['<Tab>'] = cmp_action.luasnip_supertab(),
-                ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+                ['<Tab>'] = cmp_action.tab_complete(),
+                ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+            }
+        })
+
+        require('flutter-tools').setup({
+            lsp = {
+                capabilities = lsp.get_capabilities()
             }
         })
     end
