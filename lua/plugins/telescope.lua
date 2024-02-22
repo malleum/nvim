@@ -7,6 +7,24 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("telescope").setup({
+			defaults = {
+				layout_strategy = "horizontal",
+				layout_config = {
+					width = 0.95,
+					height = 0.85,
+					prompt_position = "top",
+					horizontal = {
+						preview_width = function(_, cols, _)
+							if cols > 200 then
+								return math.floor(cols * 0.4)
+							else
+								return math.floor(cols * 0.6)
+							end
+						end,
+
+					},
+				},
+			},
 			extensions = {
 				fzy_native = {
 					override_generic_sorter = false,
