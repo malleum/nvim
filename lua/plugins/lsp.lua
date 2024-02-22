@@ -3,9 +3,10 @@ return {
 	branch = "v3.x",
 	dependencies = {
 		-- LSP Support
-		"neovim/nvim-lspconfig",
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"neovim/nvim-lspconfig",
 
 		-- Autocompletion
 		"hrsh7th/nvim-cmp",
@@ -42,37 +43,10 @@ return {
 
 		local nixhost = isNixOS()
 
-		local extra_langs = {
-			"jsonls",
-			"lua_ls",
-			"pyright",
-		}
-		if nixhost then
-			extra_langs = {
-				"gopls",
-				"html",
-				"htmx",
-				"jdtls",
-				"jsonls",
-				"kotlin_language_server",
-				"lua_ls",
-				"nil_ls",
-				"pyright",
-				"rnix",
-			}
-		end
-
 		local lsp = require("lsp-zero").preset({
 			manage_nvim_cmp = {
 				set_extra_mappings = true,
 			},
-		})
-
-		require("mason").setup({})
-		Map("n", "<leader>m", vim.cmd.Mason)
-		require("mason-lspconfig").setup({
-			ensure_installed = extra_langs,
-			handlers = { lsp.default_setup },
 		})
 
 		lsp.extend_cmp()
@@ -120,11 +94,52 @@ return {
 			end)
 		end)
 
+		local lsp_langs = {
+			"jsonls",
+			"lua_ls",
+			"pyright",
+		}
+		if nixhost then
+			lsp_langs = {
+				"gopls",
+				"html",
+				"htmx",
+				"jdtls",
+				"jsonls",
+				"kotlin_language_server",
+				"lua_ls",
+				"nil_ls",
+				"pyright",
+				"rnix",
+			}
+		end
+
+		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+		require("mason").setup({})
+		Map("n", "<leader>m", vim.cmd.Mason)
+		require("mason-tool-installer").setup({ ensure_installed = { "stylua", "isort" } })
+		vim.api.nvim_command("MasonToolsInstall")
+		require("mason-lspconfig").setup({
+			ensure_installed = lsp_langs,
+			handlers = { lsp.default_setup },
+		})
+
 		local lspconfig = require("lspconfig")
+		lspconfig.jsonls.setup({})
+		lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+		lspconfig.pyright.setup({})
 
 		if nixhost then
 			lspconfig.clangd.setup({}) -- Not installed with Mason
 			lspconfig.dartls.setup({}) -- Not installed with Mason
+			lspconfig.gopls.setup({})
+			lspconfig.html.setup({})
+			lspconfig.htmx.setup({})
+			lspconfig.jdtls.setup({})
+			lspconfig.kotlin_language_server.setup({})
+			lspconfig.nil_ls.setup({})
+			lspconfig.rnix.setup({})
 		end
 
 		require("luasnip.loaders.from_vscode").lazy_load()
