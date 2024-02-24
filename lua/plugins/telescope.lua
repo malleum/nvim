@@ -21,7 +21,6 @@ return {
 								return math.floor(cols * 0.6)
 							end
 						end,
-
 					},
 				},
 			},
