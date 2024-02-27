@@ -4,7 +4,7 @@ return {
 	event = "VeryLazy",
 	config = function()
 		local harpoon = require("harpoon")
-		harpoon:setup()
+		harpoon:setup({})
 
 		local function hrpnslct(num)
 			harpoon:list():select(num)

@@ -114,8 +114,6 @@ return {
 			}
 		end
 
-		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 		require("mason").setup({})
 		Map("n", "<leader>m", vim.cmd.Mason)
 		require("mason-tool-installer").setup({ ensure_installed = { "stylua", "isort" } })
