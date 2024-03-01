@@ -1,21 +1,8 @@
 return {
-	{
-		"mg979/vim-visual-multi",
-		event = "VeryLazy",
-	},
-	{
-		"tpope/vim-surround",
-		event = "VeryLazy",
-	},
-	{
-		"echasnovski/mini.nvim",
-		version = false,
-		event = "VeryLazy",
-		config = function()
-			require("mini.comment").setup()
-			require("mini.pairs").setup()
-		end,
-	},
+	{ "mg979/vim-visual-multi", event = "VeryLazy" },
+	{ "tpope/vim-surround", event = "VeryLazy" },
+	{ "numToStr/Comment.nvim", opts = {}, event = "VeryLazy" },
+	{ "windwp/nvim-autopairs", opts = {}, event = "VeryLazy" },
 	{
 		"mbbill/undotree",
 		event = "VeryLazy",

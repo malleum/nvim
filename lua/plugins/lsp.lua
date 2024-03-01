@@ -21,9 +21,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 
 		-- Yooo
-		{ "akinsho/flutter-tools.nvim" },
 		{ "j-hui/fidget.nvim", opts = {} },
-		{ "folke/neodev.nvim", opts = {} },
 	},
 	event = "VeryLazy",
 	config = function()
@@ -75,21 +73,12 @@ return {
 				exclude = { "f2", "f3", "f4" },
 			})
 
-			local lsp_map = function(m, k, a)
-				vim.keymap.set(m, k, a, { buffer = buf, remap = false })
-			end
+			local opts = { buffer = buf, remap = false }
+			vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+			vim.keymap.set("n", "<leader>ra", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+			vim.keymap.set("n", "<leader>rr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 
-			lsp_map("n", "<leader>rn", function()
-				vim.lsp.buf.rename()
-			end)
-			lsp_map("n", "<leader>ra", function()
-				vim.lsp.buf.code_action()
-			end)
-			lsp_map("n", "<leader>rr", function()
-				vim.lsp.buf.references()
-			end)
-
-			lsp_map("n", "<leader>f", function()
+			vim.keymap.set("n", "<leader>f", function()
 				require("conform").format({ async = true, lsp_fallback = true })
 			end)
 		end)
@@ -166,12 +155,6 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<Tab>"] = cmp_action.tab_complete(),
 				["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
-			},
-		})
-
-		require("flutter-tools").setup({
-			lsp = {
-				capabilities = lsp.get_capabilities(),
 			},
 		})
 	end,

@@ -1,8 +1,5 @@
 return {
-	{
-		"jessekelighine/vindent.vim",
-		event = "VeryLazy",
-	},
+	{ "michaeljsmith/vim-indent-object", event = "VeryLazy" },
 	{
 		"ggandor/leap-spooky.nvim",
 		event = "VeryLazy",
