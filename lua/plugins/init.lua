@@ -1,8 +1,8 @@
 return {
 	{ "mg979/vim-visual-multi", event = "VeryLazy" },
-	{ "kylechui/nvim-surround", event = "VeryLazy" },
 	{ "numToStr/Comment.nvim", opts = {}, event = "VeryLazy" },
 	{ "windwp/nvim-autopairs", opts = {}, event = "VeryLazy" },
+	{ "tpope/vim-surround", event = "VeryLazy" },
 	{
 		"mbbill/undotree",
 		event = "VeryLazy",
