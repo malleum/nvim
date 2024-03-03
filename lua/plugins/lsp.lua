@@ -22,6 +22,7 @@ return {
 
 		-- Yooo
 		{ "j-hui/fidget.nvim", opts = {} },
+		{ "folke/neodev.nvim", opts = {} },
 	},
 	event = "VeryLazy",
 	config = function()
@@ -55,7 +56,7 @@ return {
 			info = "»",
 		})
 
-		lsp.on_attach(function(client, buf)
+		lsp.on_attach(function(_, buf)
 			lsp.default_keymaps({
 				buffer = buf,
 				include = {
