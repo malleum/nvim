@@ -6,4 +6,8 @@ return {
 			vim.g.vimtex_compiler_method = "latexrun"
 		end,
 	},
+	{ "lewis6991/gitsigns.nvim", opts = {}, event = "VeryLazy" },
+	{ "tpope/vim-fugitive", event = "VeryLazy", config = function()
+        Map("n", "<leader>g", vim.cmd([[G]]))
+    end },
 }
