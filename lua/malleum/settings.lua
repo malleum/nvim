@@ -24,7 +24,6 @@ o.showmode = false
 o.wrap = false
 o.nu = true
 o.relativenumber = true
-o.scrolloff = 7
 o.smartcase = true
 o.undofile = true
 o.wildmenu = true

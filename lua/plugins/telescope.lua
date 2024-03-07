@@ -31,9 +31,7 @@ return {
 		Map("n", "<leader>ph", t.help_tags)
 		Map("n", "<leader>pr", t.lsp_references)
 
-		Map("n", "<leader>ps", function()
-			t.grep_string({ search = vim.fn.input("invenire > ") })
-		end)
+		Map("n", "<leader>ps", t.live_grep)
 		Map("n", "<leader>pw", function()
 			t.grep_string({ search = vim.fn.expand("<cword>") })
 		end)
