@@ -5,11 +5,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			label = { rainbow = { enabled = true } },
-			modes = {
-				search = { enabled = false },
-				char = { keys = { "f", "F", "t", "T", [";"] = "<cr>", [","] = "<tab>" } },
-				remote_op = { restore = true, motion = true },
-			},
+			modes = { search = { enabled = false } },
 		},
         -- stylua: ignore
 		keys = {
