@@ -14,6 +14,7 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lua",
+		-- { "zbirenbaum/copilot-cmp", opts = {} },
 
 		-- Snippets
 		{ "L3MON4D3/LuaSnip", version = "2.*", build = "make install_jsregexp" },
@@ -23,6 +24,13 @@ return {
 		-- Yooo
 		{ "j-hui/fidget.nvim", opts = {} },
 		{ "folke/neodev.nvim", opts = {} },
+		{
+			"zbirenbaum/copilot.lua",
+			opts = {
+				panel = { keymap = { open = "<M-z>" } },
+				suggestion = { keymap = { accept = "<M-/>" } },
+			},
+		},
 	},
 	event = "VeryLazy",
 	config = function()
@@ -68,8 +76,8 @@ return {
 					"gi", -- implementation
 					"go", -- type definition
 					"gs", -- signiture help
-					"[d", -- next/prev error
-					"]d",
+					"[d", -- prev error
+					"]d", -- next error
 				},
 				exclude = { "f2", "f3", "f4" },
 			})
@@ -133,7 +141,6 @@ return {
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		local cmp = require("cmp")
-		local cmp_action = require("lsp-zero").cmp_action()
 
 		cmp.setup({
 			snippet = {
@@ -154,8 +161,6 @@ return {
 			},
 			mapping = {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp_action.tab_complete(),
-				["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
 			},
 		})
 	end,
