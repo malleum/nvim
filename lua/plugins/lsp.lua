@@ -113,7 +113,7 @@ return {
 		end
 
 		require("mason").setup({})
-		Map("n", "<leader>m", vim.cmd.Mason)
+		vim.keymap.set("n", "<leader>m", vim.cmd.Mason)
 		require("mason-tool-installer").setup({ ensure_installed = { "stylua", "isort" } })
 		vim.api.nvim_command("MasonToolsInstall")
 		require("mason-lspconfig").setup({

@@ -11,6 +11,6 @@ return {
 			},
 		})
 
-		Map("n", "-", vim.cmd.Oil)
+		vim.keymap.set("n", "-", vim.cmd.Oil)
 	end,
 }

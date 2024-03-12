@@ -8,6 +8,6 @@ return {
 	},
 	{ "lewis6991/gitsigns.nvim", opts = {}, event = "VeryLazy" },
 	{ "tpope/vim-fugitive", event = "VeryLazy", config = function()
-        Map("n", "<leader>g", "<cmd>G<cr>")
+        vim.keymap.set("n", "<leader>g", "<cmd>G<cr>")
     end },
 }
