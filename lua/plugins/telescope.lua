@@ -32,6 +32,9 @@ return {
 		vim.keymap.set("n", "<leader>pr", t.lsp_references)
 
 		vim.keymap.set("n", "<leader>ps", t.live_grep)
+		vim.keymap.set("n", "<leader>pS", function()
+			t.grep_string({ search = vim.fn.input({ prompt = " >" }) })
+		end)
 		vim.keymap.set("n", "<leader>pw", function()
 			t.grep_string({ search = vim.fn.expand("<cword>") })
 		end)
