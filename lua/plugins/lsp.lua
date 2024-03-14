@@ -27,7 +27,10 @@ return {
 			"zbirenbaum/copilot.lua",
 			opts = {
 				panel = { keymap = { open = "<M-z>" } },
-				suggestion = { keymap = { accept = "<M-/>" } },
+				suggestion = {
+					auto_triggered = true,
+					keymap = { accept = "<M-/>" },
+				},
 			},
 		},
 	},
