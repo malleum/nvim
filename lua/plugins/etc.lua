@@ -8,10 +8,12 @@ return {
 	},
 	{ "lewis6991/gitsigns.nvim", opts = {}, event = "VeryLazy" },
 	{
-		"tpope/vim-fugitive",
+		"NeogitOrg/neogit",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		event = "VeryLazy",
 		config = function()
-			vim.keymap.set("n", "<leader>g", "<cmd>G<cr>")
+			require("neogit").setup({})
+			vim.keymap.set("n", "<leader>g", "<cmd>Neogit<cr>")
 		end,
 	},
 }
