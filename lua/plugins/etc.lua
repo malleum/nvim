@@ -6,10 +6,13 @@ return {
 			vim.g.vimtex_view_method = "Okular"
 		end,
 	},
-	{ "lewis6991/gitsigns.nvim", opts = {}, event = "VeryLazy" },
 	{
 		"NeogitOrg/neogit",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			{ "lewis6991/gitsigns.nvim", opts = {} },
+		},
 		event = "VeryLazy",
 		config = function()
 			require("neogit").setup({})
