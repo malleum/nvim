@@ -108,9 +108,7 @@ return {
 				"jsonls",
 				"kotlin_language_server",
 				"lua_ls",
-				"nil_ls",
 				"pyright",
-				"rnix",
 			}
 		end
 
@@ -131,13 +129,12 @@ return {
 		if nixhost then
 			lspconfig.clangd.setup({}) -- Not installed with Mason
 			lspconfig.dartls.setup({}) -- Not installed with Mason
+			lspconfig.nil_ls.setup({}) -- Not installed with Mason
 			lspconfig.gopls.setup({})
 			lspconfig.html.setup({})
 			lspconfig.htmx.setup({})
 			lspconfig.jdtls.setup({})
 			lspconfig.kotlin_language_server.setup({})
-			lspconfig.nil_ls.setup({})
-			lspconfig.rnix.setup({})
 		end
 
 		require("luasnip.loaders.from_vscode").lazy_load()
