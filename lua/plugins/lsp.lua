@@ -20,9 +20,7 @@ return {
 		"rafamadriz/friendly-snippets",
 		"saadparwaiz1/cmp_luasnip",
 
-		-- Yooo
-		{ "j-hui/fidget.nvim", opts = {} },
-		{ "folke/neodev.nvim", opts = {} },
+		-- AI
 		{
 			"zbirenbaum/copilot.lua",
 			opts = {
